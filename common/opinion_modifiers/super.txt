@@ -1,0 +1,8 @@
+opinion_modifiers = {
+	ambition_recognition = {
+		value = 25
+	}
+	ambition_rejection = {
+		value = -25
+	}
+}
