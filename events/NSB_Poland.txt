@@ -1,33 +1,35 @@
 ###########################
 # NSB Polish Events
 ###########################
-
 add_namespace = NSB_poland_events
-
 #Poland demands Slovakia
 country_event = {
 	id = NSB_poland_events.1
 	title = NSB_poland_events.1.t
 	desc = NSB_poland_events.1.desc
 	picture = GFX_report_event_lithuanian_ultimatum
-
-
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Getting annexed by Poland? Sounds like a great idea!
+	option = {
+		#Getting annexed by Poland? Sounds like a great idea!
 		name = NSB_poland_events.1.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				POL = { has_army_size = { size < 40 } }
+				POL = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				add = 20
@@ -36,12 +38,17 @@ country_event = {
 			modifier = {
 				factor = 0.1
 				is_in_faction = yes
-				NOT = { is_in_faction_with = POL }
+				NOT = {
+					is_in_faction_with = POL
+				}
 			}
 		}
 		hidden_effect = {
 			POL = {
-				country_event = { hours = 2 id = NSB_poland_events.101 }
+				country_event = {
+					hours = 2
+					id = NSB_poland_events.101
+				}
 			}
 		}
 		if = {
@@ -55,31 +62,41 @@ country_event = {
 				limit = {
 					owns_state = 70
 				}
-				POL = { transfer_state = 70 }
+				POL = {
+					transfer_state = 70
+				}
 			}
 			if = {
 				limit = {
 					owns_state = 71
 				}
-				POL = { transfer_state = 71 }
+				POL = {
+					transfer_state = 71
+				}
 			}
 			if = {
 				limit = {
 					owns_state = 72
 				}
-				POL = { transfer_state = 72 }
+				POL = {
+					transfer_state = 72
+				}
 			}
 			if = {
 				limit = {
 					owns_state = 73
 				}
-				POL = { transfer_state = 73 }
+				POL = {
+					transfer_state = 73
+				}
 			}
 			if = {
 				limit = {
 					owns_state = 664
 				}
-				POL = { transfer_state = 664 }
+				POL = {
+					transfer_state = 664
+				}
 			}
 		}
 		if = {
@@ -95,66 +112,84 @@ country_event = {
 			custom_effect_tooltip = GAME_OVER_TT
 		}
 	}
-
-	option = { #No thank you
+	option = {
+		#No thank you
 		name = NSB_poland_events.1.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				POL = { has_army_size = { size < 30 } }
+				POL = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				factor = 2
 				is_in_faction = yes
-				NOT = { is_in_faction_with = POL }
+				NOT = {
+					is_in_faction_with = POL
+				}
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					is_in_faction_with = ROOT
 				}
-				factor = 50 #I'm Slovakia and I'm in the axis
+				factor = 50				#I'm Slovakia and I'm in the axis
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = ROOT
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = ROOT
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 		}
 		POL = {
-			add_opinion_modifier = { target = PREV modifier = POL_annexation_refused }
-			country_event = { hours = 2 id = NSB_poland_events.102 }
-			if = { limit = { is_in_faction_with = ROOT }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = POL_annexation_refused
+			}
+			country_event = {
+				hours = 2
+				id = NSB_poland_events.102
+			}
+			if = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
 				remove_from_faction = ROOT
 			}
 		}
 	}
 }
+
 #Slovakia/Czechoslovakia says yes, gain Slovakia
 country_event = {
 	id = NSB_poland_events.101
 	title = NSB_poland_events.101.t
 	desc = NSB_poland_events.101.desc
 	picture = GFX_report_event_generic_conference
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Slovakia is ceded to Poland
+	option = {
+		#Slovakia is ceded to Poland
 		name = NSB_poland_events.101.a
 		ai_chance = {
 			base = 10
@@ -173,49 +208,58 @@ country_event = {
 		else = {
 			if = {
 				limit = {
-					FROM = { owns_state = 70 }
+					FROM = {
+						owns_state = 70
+					}
 				}
 				transfer_state = 70
 			}
 			if = {
 				limit = {
-					FROM = { owns_state = 71 }
+					FROM = {
+						owns_state = 71
+					}
 				}
 				transfer_state = 71
 			}
 			if = {
 				limit = {
-					FROM = { owns_state = 72 }
+					FROM = {
+						owns_state = 72
+					}
 				}
 				transfer_state = 72
 			}
 			if = {
 				limit = {
-					FROM = { owns_state = 73 }
+					FROM = {
+						owns_state = 73
+					}
 				}
 				transfer_state = 73
 			}
 			if = {
 				limit = {
-					FROM = { owns_state = 664 }
+					FROM = {
+						owns_state = 664
+					}
 				}
 				transfer_state = 664
 			}
 		}
 	}
 }
+
 #Slovakia/Czechoslovakia says no, gain a wargoal
 country_event = {
 	id = NSB_poland_events.102
 	title = NSB_poland_events.102.t
 	desc = NSB_poland_events.102.desc
 	picture = GFX_report_event_poland_rejects
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Getting annexed by Poland? Sounds like a great idea!
+	option = {
+		#Getting annexed by Poland? Sounds like a great idea!
 		name = NSB_poland_events.102.a
 		ai_chance = {
 			base = 10
@@ -233,22 +277,28 @@ country_event = {
 	title = NSB_poland_events.2.t
 	desc = NSB_poland_events.2.d
 	picture = GFX_report_event_generic_rally
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Sure!
+	option = {
+		#Sure!
 		name = NSB_poland_events.2.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				POL = { has_army_size = { size < 40 } }
+				POL = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				add = 20
@@ -264,7 +314,10 @@ country_event = {
 			}
 		}
 		POL = {
-			country_event = { hours = 2 id = NSB_poland_events.201 }
+			country_event = {
+				hours = 2
+				id = NSB_poland_events.201
+			}
 		}
 		effect_tooltip = {
 			POL = {
@@ -275,42 +328,61 @@ country_event = {
 			}
 		}
 	}
-
-	option = { #No thank you
+	option = {
+		#No thank you
 		name = NSB_poland_events.2.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				POL = { has_army_size = { size < 30 } }
+				POL = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				factor = 2
 				is_in_faction = yes
-				NOT = { is_in_faction_with = POL }
+				NOT = {
+					is_in_faction_with = POL
+				}
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = HUN
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = HUN
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 		}
 		POL = {
-			add_opinion_modifier = { target = PREV modifier = POL_annexation_refused }
-			country_event = { hours = 2 id = NSB_poland_events.202 }
-			if = { limit = { is_in_faction_with = HUN }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = POL_annexation_refused
+			}
+			country_event = {
+				hours = 2
+				id = NSB_poland_events.202
+			}
+			if = {
+				limit = {
+					is_in_faction_with = HUN
+				}
 				remove_from_faction = HUN
 			}
 		}
@@ -323,12 +395,10 @@ country_event = {
 	title = NSB_poland_events.201.t
 	desc = NSB_poland_events.201.desc
 	picture = GFX_report_event_generic_parliament
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Hungary is ceded to Poland
+	option = {
+		#Hungary is ceded to Poland
 		name = NSB_poland_events.201.a
 		ai_chance = {
 			base = 10
@@ -339,18 +409,17 @@ country_event = {
 		}
 	}
 }
+
 #Hungary says no, gain a wargoal
 country_event = {
 	id = NSB_poland_events.202
 	title = NSB_poland_events.202.t
 	desc = NSB_poland_events.202.desc
 	picture = GFX_report_event_military_planning
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Getting annexed by Poland? Sounds like a great idea!
+	option = {
+		#Getting annexed by Poland? Sounds like a great idea!
 		name = NSB_poland_events.202.a
 		ai_chance = {
 			base = 10
@@ -368,12 +437,10 @@ country_event = {
 	title = NSB_poland_events.3.t
 	desc = NSB_poland_events.3.desc
 	picture = GFX_report_event_generic_read_write
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Accept, Poland forms a faction
+	option = {
+		#Accept, Poland forms a faction
 		name = NSB_poland_events.3.a
 		ai_chance = {
 			factor = 70
@@ -387,9 +454,12 @@ country_event = {
 			id = "POL"
 			value = 200
 		}
-		FROM = { country_event = NSB_poland_events.301 }
+		FROM = {
+			country_event = NSB_poland_events.301
+		}
 	}
-	option = { #no
+	option = {
+		#no
 		name = NSB_poland_events.3.b
 		ai_chance = {
 			factor = 30
@@ -398,20 +468,29 @@ country_event = {
 				factor = 0
 			}
 		}
-		FROM = { country_event = NSB_poland_events.302 }
+		FROM = {
+			country_event = NSB_poland_events.302
+		}
 	}
-	option = { #Germany agrees with the caviat that Poland cedes Danzig because I'm player Germany and if I don't get Danzig the game is literally unplayable, the devs should spend less time making a Polish focus tree and more time fixing the ai.
+	option = {
+		#Germany agrees with the caviat that Poland cedes Danzig because I'm player Germany and if I don't get Danzig the game is literally unplayable, the devs should spend less time making a Polish focus tree and more time fixing the ai.
 		name = NSB_poland_events.3.c
 		ai_chance = {
 			factor = 0
 		}
 		trigger = {
 			OR = {
-				POL = { owns_state = 807 }
-				POL = { owns_state = 85 }
+				POL = {
+					owns_state = 807
+				}
+				POL = {
+					owns_state = 85
+				}
 			}
 		}
-		FROM = { country_event = NSB_poland_events.303 }
+		FROM = {
+			country_event = NSB_poland_events.303
+		}
 	}
 }
 
@@ -421,12 +500,10 @@ country_event = {
 	title = NSB_poland_events.301.t
 	desc = NSB_poland_events.301.desc
 	picture = GFX_report_event_generic_sign_treaty2
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Accept, Poland forms a faction
+	option = {
+		#Accept, Poland forms a faction
 		name = NSB_poland_events.301.a
 		set_rule = {
 			can_create_factions = yes
@@ -442,11 +519,8 @@ country_event = {
 	title = NSB_poland_events.302.t
 	desc = NSB_poland_events.302.desc
 	picture = GFX_report_event_generic_rally2
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	option = {
 		name = NSB_poland_events.302.a
 		create_wargoal = {
@@ -462,22 +536,28 @@ country_event = {
 	title = NSB_poland_events.303.t
 	desc = NSB_poland_events.303.desc
 	picture = GFX_report_event_generic_parliament
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Accept, Poland cedes Danzig and Germany joins the faction.
+	option = {
+		#Accept, Poland cedes Danzig and Germany joins the faction.
 		name = NSB_poland_events.303.a
 		ai_chance = {
 			factor = 30
 			modifier = {
 				add = -25
-				GER = { has_army_size = { size < 40 } }
+				GER = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				GER = { has_army_size = { size > 39 } }
+				GER = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 		}
 		set_rule = {
@@ -489,19 +569,27 @@ country_event = {
 			limit = {
 				owns_state = 807
 			}
-			807 = { add_core_of = GER }
-			GER = { transfer_state = 807 }
+			807 = {
+				add_core_of = GER
+			}
+			GER = {
+				transfer_state = 807
+			}
 		}
 		if = {
 			limit = {
 				owns_state = 85
 			}
-			85 = { add_core_of = GER }
-			GER = { transfer_state = 85 }
+			85 = {
+				add_core_of = GER
+			}
+			GER = {
+				transfer_state = 85
+			}
 		}
 	}
-
-	option = { #Refuse, don't give Germany Danzig but they get a wargoal to stop players from ragequitting over Danzig. Again.
+	option = {
+		#Refuse, don't give Germany Danzig but they get a wargoal to stop players from ragequitting over Danzig. Again.
 		name = germany.86.b
 		ai_chance = {
 			factor = 40
@@ -511,12 +599,20 @@ country_event = {
 				create_wargoal = {
 					type = take_state
 					target = POL
-					generator = { 85 807 }
+					generator = {
+						85
+						807
+					}
 				}
 			}
 		}
 		hidden_effect = {
-			GER = { country_event = { id = NSB_poland_events.304 days = 2 } }
+			GER = {
+				country_event = {
+					id = NSB_poland_events.304
+					days = 2
+				}
+			}
 		}
 	}
 }
@@ -526,12 +622,10 @@ country_event = {
 	title = NSB_poland_events.304.t
 	desc = NSB_poland_events.304.desc
 	picture = GFX_report_event_military_planning
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Danzig or war
+	option = {
+		#Danzig or war
 		name = NSB_poland_events.304.a
 		ai_chance = {
 			factor = 40
@@ -539,11 +633,13 @@ country_event = {
 		create_wargoal = {
 			type = take_state
 			target = POL
-			generator = { 85 807 }
+			generator = {
+				85
+				807
+			}
 		}
 	}
 }
-
 
 #Poland wants to buy Madagascar
 country_event = {
@@ -551,16 +647,15 @@ country_event = {
 	title = NSB_poland_events.4.t
 	desc = NSB_poland_events.4.desc
 	picture = GFX_report_event_generic_conference
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Sell the island(s) to Poland
+	option = {
+		#Sell the island(s) to Poland
 		name = NSB_poland_events.4.a
 		ai_chance = {
 			base = 10
-			modifier = { #Shouldn't sell Madagascar if that is all they have left.
+			modifier = {
+				#Shouldn't sell Madagascar if that is all they have left.
 				factor = 0
 				has_capitulated = yes
 				NOT = {
@@ -599,13 +694,19 @@ country_event = {
 			idea = POL_sold_colony_expensive
 			days = 720
 		}
-			POL = { country_event = { id = NSB_poland_events.401 } }
+		POL = {
+			country_event = {
+				id = NSB_poland_events.401
+			}
+		}
 	}
-	option = { #Refuse to sell the islands
+	option = {
+		#Refuse to sell the islands
 		name = NSB_poland_events.4.b
 		ai_chance = {
 			base = 10
-			modifier = { #Should generally be okay with selling Madagascar if they have other territory left.
+			modifier = {
+				#Should generally be okay with selling Madagascar if they have other territory left.
 				factor = 0.5
 				any_controlled_state = {
 					NOT = {
@@ -619,11 +720,18 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			543 = { set_state_flag = rejected_purchase_flag }
+			543 = {
+				set_state_flag = rejected_purchase_flag
+			}
 		}
-		POL = { country_event = { id = NSB_poland_events.402 } }
+		POL = {
+			country_event = {
+				id = NSB_poland_events.402
+			}
+		}
 	}
 }
+
 #Madagascar sale goes through
 country_event = {
 	id = NSB_poland_events.401
@@ -631,22 +739,26 @@ country_event = {
 	desc = {
 		text = NSB_poland_events.401.desc.dem
 		trigger = {
-			POL = { NOT = { has_government = communism } }
+			POL = {
+				NOT = {
+					has_government = communism
+				}
+			}
 		}
 	}
 	desc = {
 		text = NSB_poland_events.401.desc.com
 		trigger = {
-			POL = { has_government = communism }
+			POL = {
+				has_government = communism
+			}
 		}
 	}
 	picture = GFX_report_event_generic_sign_treaty2
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Sell the island(s) to Poland
+	option = {
+		#Sell the island(s) to Poland
 		name = NSB_poland_events.401.a
 		ai_chance = {
 			base = 10
@@ -674,16 +786,16 @@ country_event = {
 		}
 	}
 }
+
 #France refuses to sell Madagascar
 country_event = {
 	id = NSB_poland_events.402
 	title = NSB_poland_events.402.t
 	desc = NSB_poland_events.402.desc
 	picture = GFX_report_event_generic_parliament
-	
 	is_triggered_only = yes
-
-	option = { #Sell the island(s) to Poland
+	option = {
+		#Sell the island(s) to Poland
 		name = NSB_poland_events.402.a
 		ai_chance = {
 			base = 10
@@ -694,18 +806,18 @@ country_event = {
 
 #Poland wants to buy other colonies
 country_event = {
-	id = NSB_poland_events.5	
+	id = NSB_poland_events.5
 	title = NSB_poland_events.4.t
 	desc = NSB_poland_events.4.desc
 	picture = GFX_report_event_generic_conference
-	
 	is_triggered_only = yes
-
-	option = { #Sell the island(s) to Poland
+	option = {
+		#Sell the island(s) to Poland
 		name = NSB_poland_events.4.a
 		ai_chance = {
 			base = 10
-			modifier = { #Shouldn't sell their colony if that is all they have left.
+			modifier = {
+				#Shouldn't sell their colony if that is all they have left.
 				factor = 0
 				has_capitulated = yes
 				NOT = {
@@ -737,13 +849,19 @@ country_event = {
 				days = 720
 			}
 		}
-		POL = { country_event = { id = NSB_poland_events.501 } }
+		POL = {
+			country_event = {
+				id = NSB_poland_events.501
+			}
+		}
 	}
-	option = { #Refuse to sell the colony
+	option = {
+		#Refuse to sell the colony
 		name = NSB_poland_events.4.b
 		ai_chance = {
 			base = 10
-			modifier = { #Should generally be okay with selling their colonies if they have other territory left.
+			modifier = {
+				#Should generally be okay with selling their colonies if they have other territory left.
 				factor = 0.5
 				any_controlled_state = {
 					NOT = {
@@ -753,11 +871,18 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			event_target:POL_colony_purchase = { set_state_flag = rejected_purchase_flag }
+			event_target:POL_colony_purchase = {
+				set_state_flag = rejected_purchase_flag
+			}
 		}
-		POL = { country_event = { id = NSB_poland_events.502 } }
+		POL = {
+			country_event = {
+				id = NSB_poland_events.502
+			}
+		}
 	}
 }
+
 #Colony sale succeeds
 country_event = {
 	id = NSB_poland_events.501
@@ -765,20 +890,25 @@ country_event = {
 	desc = {
 		text = NSB_poland_events.401.desc.dem
 		trigger = {
-			POL = { NOT = { has_government = communism } }
+			POL = {
+				NOT = {
+					has_government = communism
+				}
+			}
 		}
 	}
 	desc = {
 		text = NSB_poland_events.401.desc.com
 		trigger = {
-			POL = { has_government = communism }
+			POL = {
+				has_government = communism
+			}
 		}
 	}
 	picture = GFX_report_event_generic_read_write
-	
 	is_triggered_only = yes
-
-	option = { #Sell the island(s) to Poland
+	option = {
+		#Sell the island(s) to Poland
 		name = NSB_poland_events.401.a
 		ai_chance = {
 			base = 10
@@ -788,16 +918,16 @@ country_event = {
 		}
 	}
 }
+
 #Colony sale fails
 country_event = {
 	id = NSB_poland_events.502
 	title = NSB_poland_events.402.t
 	desc = NSB_poland_events.402.desc
 	picture = GFX_report_event_journalists_speech
-	
 	is_triggered_only = yes
-
-	option = { #Decision is removed so Poland is not throwing civ factories down the drain for nothing.
+	option = {
+		#Decision is removed so Poland is not throwing civ factories down the drain for nothing.
 		name = NSB_poland_events.402.a
 		ai_chance = {
 			base = 10
@@ -846,45 +976,45 @@ country_event = {
 	title = NSB_poland_events.6.t
 	desc = NSB_poland_events.6.desc
 	picture = GFX_report_event_generic_rally
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Liberia agrees
+	option = {
+		#Liberia agrees
 		name = NSB_poland_events.6.a
 		ai_chance = {
 			base = 10
-			modifier = { 
+			modifier = {
 				add = 25
 				strength_ratio = {
-					tag = FROM 
-					ratio < 0.3	
-				}
-			}
-			modifier = { 
-				add = 15 
-				has_opinion = {
-					target = FROM 
-					value > 40 
+					tag = FROM
+					ratio < 0.3
 				}
 			}
 			modifier = {
-				add = 25 
+				add = 15
+				has_opinion = {
+					target = FROM
+					value > 40
+				}
+			}
+			modifier = {
+				add = 25
 				any_country = {
-					is_major = yes 
-					is_in_faction_with = FROM 
+					is_major = yes
+					is_in_faction_with = FROM
 				}
 			}
 			modifier = {
 				factor = 0.1
 				any_country = {
-					is_major = yes 
-					OR = { 
-						has_guaranteed = ROOT 
+					is_major = yes
+					OR = {
+						has_guaranteed = ROOT
 						is_in_faction_with = ROOT
 					}
-					NOT = { is_in_faction_with = FROM }
+					NOT = {
+						is_in_faction_with = FROM
+					}
 				}
 			}
 		}
@@ -914,8 +1044,8 @@ country_event = {
 			}
 		}
 	}
-
-	option = { #Liberia refuses
+	option = {
+		#Liberia refuses
 		name = NSB_poland_events.6.b
 		ai_chance = {
 			base = 5
@@ -930,7 +1060,9 @@ country_event = {
 		}
 		hidden_effect = {
 			POL = {
-				country_event = { id = NSB_poland_events.601 }
+				country_event = {
+					id = NSB_poland_events.601
+				}
 			}
 		}
 	}
@@ -942,12 +1074,10 @@ country_event = {
 	title = NSB_poland_events.601.t
 	desc = NSB_poland_events.601.desc
 	picture = GFX_report_event_generic_parliament
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Gain a wargoal on Liberia. Good luck naval invading.
+	option = {
+		#Gain a wargoal on Liberia. Good luck naval invading.
 		name = NSB_poland_events.601.a
 		ai_chance = {
 			base = 10
@@ -957,8 +1087,8 @@ country_event = {
 			type = puppet_wargoal_focus
 		}
 	}
-
-	option = { #Just let it slide, gain nothing.
+	option = {
+		#Just let it slide, gain nothing.
 		name = NSB_poland_events.601.b
 		ai_chance = {
 			base = 10
@@ -972,9 +1102,7 @@ country_event = {
 	title = NSB_poland_events.7.t
 	desc = NSB_poland_events.7.desc
 	picture = GFX_report_event_french_british_officers
-	
 	is_triggered_only = yes
-
 	immediate = {
 		hidden_effect = {
 			save_event_target_as = alliance_applicant
@@ -983,15 +1111,18 @@ country_event = {
 			}
 		}
 	}
-
-	option = { #France agrees
+	option = {
+		#France agrees
 		name = NSB_poland_events.7.a
 		ai_chance = {
 			base = 10
 		}
 		FROM = {
 			add_to_faction = PREV
-			country_event = { id = generic.6 hours = 6 }
+			country_event = {
+				id = generic.6
+				hours = 6
+			}
 			add_ai_strategy = {
 				type = alliance
 				id = FROM
@@ -1005,35 +1136,41 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = alliance_applicant@ROOT
-			FROM = { set_country_flag = alliance_inviter@ROOT }
-			news_event = { id = news.289 hours = 12 }
+			FROM = {
+				set_country_flag = alliance_inviter@ROOT
+			}
+			news_event = {
+				id = news.289
+				hours = 12
+			}
 		}
 	}
-
-	option = { #France refuses
+	option = {
+		#France refuses
 		name = NSB_poland_events.7.b
 		ai_chance = {
-			base = 0 #If France gets this event, they should never say no as an AI.
+			base = 0			#If France gets this event, they should never say no as an AI.
 		}
 		hidden_effect = {
 			POL = {
-				country_event = { id = NSB_poland_events.701 }
+				country_event = {
+					id = NSB_poland_events.701
+				}
 			}
 		}
 	}
 }
+
 #France says no, change to Bourgois Democracy branch
 country_event = {
 	id = NSB_poland_events.701
 	title = NSB_poland_events.601.t
 	desc = NSB_poland_events.701.desc
 	picture = GFX_report_event_french_british_officers
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Switch branch
+	option = {
+		#Switch branch
 		name = NSB_poland_events.701.a
 		ai_chance = {
 			base = 10
@@ -1054,15 +1191,16 @@ country_event = {
 	title = NSB_poland_events.8.t
 	desc = NSB_poland_events.8.d
 	picture = GFX_report_event_royal_parade
-
 	trigger = {
 		tag = POL
-		has_country_leader  = {
+		has_country_leader = {
 			character = POL_anna_andersson
-			ruling_only  = yes
+			ruling_only = yes
 		}
 		has_country_flag = POL_vojtek_commander
-		NOT = { is_in_faction_with = SOV }
+		NOT = {
+			is_in_faction_with = SOV
+		}
 		219 = {
 			controller = {
 				OR = {
@@ -1072,13 +1210,10 @@ country_event = {
 			}
 		}
 	}
-
 	mean_time_to_happen = {
 		days = 1
 	}
-
 	fire_only_once = yes
-
 	option = {
 		name = NSB_poland_events.8.a
 		add_political_power = -100
@@ -1096,9 +1231,7 @@ country_event = {
 	title = NSB_poland_royal_election.1.t
 	desc = NSB_poland_royal_election.1.desc
 	picture = GFX_report_event_royal_parade
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_royal_election.1.a
 		ai_chance = {
@@ -1120,10 +1253,10 @@ country_event = {
 				}
 			}
 		}
-		set_party_name = { 
-			ideology = neutrality 
+		set_party_name = {
+			ideology = neutrality
 			long_name = POL_wettin_party
-			name = POL_wettin_party 
+			name = POL_wettin_party
 		}
 		hidden_effect = {
 			clr_country_flag = POL_searching_for_monarch_flag
@@ -1139,7 +1272,6 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = NSB_poland_royal_election.1.b
 		ai_chance = {
@@ -1164,15 +1296,14 @@ country_event = {
 		}
 	}
 }
+
 # King Michael
 country_event = {
 	id = NSB_poland_royal_election.2
 	title = NSB_poland_royal_election.2.t
 	desc = NSB_poland_royal_election.2.desc
 	picture = GFX_report_event_royal_parade
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_royal_election.2.a
 		ai_chance = {
@@ -1194,26 +1325,27 @@ country_event = {
 				}
 			}
 		}
-
-
 		ROM = {
 			ROM_king_michael = {
 				set_nationality = POL
 			}
 		}
 		if = {
-			limit = { POL = { has_character = ROM_king_michael } }
+			limit = {
+				POL = {
+					has_character = ROM_king_michael
+				}
+			}
 			POL = {
 				ROM_king_michael = {
 					promote_character = {
-						ideology = despotism 
-					} 
-				}	
+						ideology = despotism
+					}
+				}
 			}
 		}
-
-		set_party_name = { 
-			ideology = neutrality 
+		set_party_name = {
+			ideology = neutrality
 			long_name = POL_hohenzollern_sigmaringen_long
 			name = POL_hohenzollern_sigmaringen
 		}
@@ -1231,7 +1363,6 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = NSB_poland_royal_election.2.b
 		ai_chance = {
@@ -1256,15 +1387,14 @@ country_event = {
 		}
 	}
 }
+
 # Pavel Bermondt-Avalov
 country_event = {
 	id = NSB_poland_royal_election.3
 	title = NSB_poland_royal_election.3.t
 	desc = NSB_poland_royal_election.3.desc
 	picture = GFX_report_event_royal_visit
-	
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_royal_election.3.a
 		ai_chance = {
@@ -1291,7 +1421,7 @@ country_event = {
 			ruling_party = fascism
 			elections_allowed = no
 			long_name = bermontian_party
-			name = bermontian_party 
+			name = bermontian_party
 		}
 		promote_character = POL_pavel_bermondt_avalov
 		hidden_effect = {
@@ -1308,7 +1438,6 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = NSB_poland_royal_election.3.b
 		ai_chance = {
@@ -1332,7 +1461,9 @@ country_event = {
 			}
 			if = {
 				limit = {
-					check_variable = { POL_election_cycle < 2 }
+					check_variable = {
+						POL_election_cycle < 2
+					}
 				}
 				country_event = {
 					id = NSB_poland_royal_election.1
@@ -1348,21 +1479,19 @@ country_event = {
 		}
 	}
 }
+
 # "Anastasia"
 country_event = {
 	id = NSB_poland_royal_election.4
 	title = NSB_poland_royal_election.4.t
 	desc = NSB_poland_royal_election.4.desc
 	picture = GFX_report_event_royal_parade
-	
 	immediate = {
 		hidden_effect = {
 			set_country_flag = romanov_enabled
 		}
 	}
-
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_royal_election.4.a
 		ai_chance = {
@@ -1379,8 +1508,8 @@ country_event = {
 		mark_focus_tree_layout_dirty = yes
 		promote_character = POL_anna_andersson
 		set_cosmetic_tag = POL_KINGDOM_RUS
-		set_party_name = { 
-			ideology = neutrality 
+		set_party_name = {
+			ideology = neutrality
 			long_name = romanov_party
 			name = romanov_party
 		}
@@ -1394,7 +1523,6 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = NSB_poland_royal_election.4.b
 		ai_chance = {
@@ -1409,18 +1537,16 @@ country_event = {
 		}
 	}
 }
+
 # The fan favourite Habsburg man™
 country_event = {
 	id = NSB_poland_royal_election.5
 	title = NSB_poland_royal_election.5.t
 	desc = NSB_poland_royal_election.5.desc
 	picture = GFX_report_event_generic_parliament
-	
 	immediate = {
 	}
-
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_royal_election.5.a
 		ai_chance = {
@@ -1443,10 +1569,10 @@ country_event = {
 			}
 		}
 		promote_character = POL_karl_albrecht
-		set_party_name = { 
-			ideology = neutrality 
+		set_party_name = {
+			ideology = neutrality
 			long_name = POL_habsburg_party
-			name = POL_habsburg_party 
+			name = POL_habsburg_party
 		}
 		unlock_national_focus = POL_habsburg
 		hidden_effect = {
@@ -1457,7 +1583,6 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = NSB_poland_royal_election.5.b
 		ai_chance = {
@@ -1483,19 +1608,15 @@ country_event = {
 	}
 }
 
-
 add_namespace = NSB_poland_monarchist_events
-
 # Romania/Lithuania made aware of Poland claiming them
 country_event = {
 	id = NSB_poland_monarchist_events.1
 	title = NSB_poland_monarchist_events.1.t
 	desc = NSB_poland_monarchist_events.1.desc
 	picture = GFX_report_event_generic_riot
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_monarchist_events.1.a
 		ai_chance = {
@@ -1511,10 +1632,8 @@ country_event = {
 	title = NSB_poland_monarchist_events.2.t
 	desc = NSB_poland_monarchist_events.2.desc
 	picture = GFX_report_event_generic_rally2
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_monarchist_events.2.a
 		ai_chance = {
@@ -1533,20 +1652,26 @@ country_event = {
 	title = NSB_poland_monarchist_events.5.t
 	desc = NSB_poland_monarchist_events.5.desc
 	picture = GFX_report_event_generic_riot
-
 	is_triggered_only = yes
-
 	option = {
 		name = NSB_poland_monarchist_events.5.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				FROM = { has_army_size = { size < 40 } }
+				FROM = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				FROM = { has_army_size = { size > 39 } }
+				FROM = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				add = 20
@@ -1558,7 +1683,9 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.5
-				check_variable = { monarchist_support > 50 }
+				check_variable = {
+					monarchist_support > 50
+				}
 			}
 		}
 		FROM = {
@@ -1567,7 +1694,6 @@ country_event = {
 				autonomy_state = autonomy_personal_union
 			}
 		}
-
 		hidden_effect = {
 			POL_set_attempted_royal_takeover_flag = yes
 			set_country_flag = POL_banned_monarchy_flag
@@ -1589,55 +1715,67 @@ country_event = {
 				}
 				CZE_karl_albrecht = {
 					add_country_leader_role = {
-						
 						country_leader = {
-							ideology=despotism
-							traits = {  } # Patriot king doesn't fit when king of Bohemia. 
-							expire="1965.1.1.1"
-							id=-1
+							ideology = despotism
+							traits = {
+							}							# Patriot king doesn't fit when king of Bohemia. 
+							expire = "1965.1.1.1"
+							id = -1
 						}
 						promote_leader = yes
 					}
 				}
-				
 			}
-			news_event = { id = nsb_news.7 }
+			news_event = {
+				id = nsb_news.7
+			}
 		}
 	}
-	
 	option = {
 		name = NSB_poland_monarchist_events.5.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				FROM = { has_army_size = { size > 39 } }
+				FROM = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				FROM = { has_army_size = { size < 30 } }
+				FROM = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				factor = 2
 				is_in_faction = yes
-				NOT = { is_in_faction_with = FROM }
+				NOT = {
+					is_in_faction_with = FROM
+				}
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = PREV
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = LIT
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 			modifier = {
 				factor = 10
-				check_variable = { monarchist_support < 40 }
+				check_variable = {
+					monarchist_support < 40
+				}
 			}
 		}
 		hidden_effect = {
@@ -1654,10 +1792,8 @@ country_event = {
 	title = NSB_poland_monarchist_events.3.t
 	desc = NSB_poland_monarchist_events.3.desc
 	picture = GFX_report_event_generic_peaceful_annexation
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_monarchist_events.3.a
 		ai_chance = {
@@ -1665,11 +1801,15 @@ country_event = {
 		}
 		effect_tooltip = {
 			if = {
-				limit = { original_tag = LIT }
+				limit = {
+					original_tag = LIT
+				}
 				set_cosmetic_tag = LIT_MONARCHY
 			}
 			if = {
-				limit = { original_tag = ROM }
+				limit = {
+					original_tag = ROM
+				}
 				set_cosmetic_tag = ROM_polish_loyalists
 			}
 		}
@@ -1682,10 +1822,8 @@ country_event = {
 	title = NSB_poland_monarchist_events.4.t
 	desc = NSB_poland_monarchist_events.4.desc
 	picture = GFX_report_event_polish_tanks_01
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_monarchist_events.4.a
 		ai_chance = {
@@ -1701,32 +1839,36 @@ country_event = {
 	title = NSB_poland_monarchist_events.6.t
 	desc = NSB_poland_monarchist_events.6.desc
 	picture = GFX_report_event_poland_rejects
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Sure!
+	option = {
+		#Sure!
 		name = NSB_poland_monarchist_events.6.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				POL = { has_army_size = { size < 40 } }
+				POL = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = -25
 				strength_ratio = {
 					tag = POL
 					ratio < 0.75
-				} #They can't beat me up
+				}
+				#They can't beat me up
 			}
 			modifier = {
 				add = 100
 				strength_ratio = {
 					tag = POL
 					ratio > 1.5
-				} #They can beat me up
+				}
+				#They can beat me up
 			}
 			modifier = {
 				add = 20
@@ -1738,53 +1880,76 @@ country_event = {
 			}
 		}
 		POL = {
-			country_event = { hours = 2 id = NSB_poland_monarchist_events.601 }
+			country_event = {
+				hours = 2
+				id = NSB_poland_monarchist_events.601
+			}
 		}
 		custom_effect_tooltip = GAME_OVER_TT
 	}
-
-	option = { #No thank you
+	option = {
+		#No thank you
 		name = NSB_poland_monarchist_events.6.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				POL = { has_army_size = { size < 30 } }
+				POL = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				factor = 2
 				strength_ratio = {
 					tag = POL
 					ratio < 0.75
-				} #They can't beat me up
+				}
+				#They can't beat me up
 			}
 			modifier = {
 				factor = 2
 				is_in_faction = yes
-				NOT = { is_in_faction_with = POL }
+				NOT = {
+					is_in_faction_with = POL
+				}
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = YUG
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = YUG
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 		}
 		POL = {
-			add_opinion_modifier = { target = PREV modifier = POL_annexation_refused }
-			country_event = { hours = 2 id = NSB_poland_monarchist_events.602 }
-			if = { limit = { is_in_faction_with = YUG }
+			add_opinion_modifier = {
+				target = PREV
+				modifier = POL_annexation_refused
+			}
+			country_event = {
+				hours = 2
+				id = NSB_poland_monarchist_events.602
+			}
+			if = {
+				limit = {
+					is_in_faction_with = YUG
+				}
 				remove_from_faction = YUG
 			}
 		}
@@ -1797,17 +1962,18 @@ country_event = {
 	title = NSB_poland_monarchist_events.601.t
 	desc = NSB_poland_monarchist_events.601.desc
 	picture = GFX_report_event_generic_conference
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Awesome!
+	option = {
+		#Awesome!
 		name = NSB_poland_monarchist_events.601.a
 		ai_chance = {
 			base = 30
 		}
-		annex_country = { target = FROM transfer_troops = no }
+		annex_country = {
+			target = FROM
+			transfer_troops = no
+		}
 	}
 }
 
@@ -1817,12 +1983,10 @@ country_event = {
 	title = NSB_poland_monarchist_events.602.t
 	desc = NSB_poland_monarchist_events.602.desc
 	picture = GFX_report_event_poland_rejects
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #How 'bout I do anyway
+	option = {
+		#How 'bout I do anyway
 		name = NSB_poland_monarchist_events.602.a
 		ai_chance = {
 			base = 30
@@ -1835,35 +1999,44 @@ country_event = {
 }
 
 add_namespace = pavel_events
-
 #Release Don Republic
 country_event = {
 	id = pavel_events.1
 	title = pavel_events.1.t
 	desc = pavel_events.1.desc
 	picture = GFX_report_event_generic_military_parade
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	immediate = {
 		hidden_effect = {
-			218 = { add_core_of = DON }
-			245 = { add_core_of = DON }
-			238 = { add_core_of = DON }
-			217 = { add_core_of = DON }
-			265 = { add_core_of = DON }
-			237 = { add_core_of = DON }
-			236 = { add_core_of = DON }
+			218 = {
+				add_core_of = DON
+			}
+			245 = {
+				add_core_of = DON
+			}
+			238 = {
+				add_core_of = DON
+			}
+			217 = {
+				add_core_of = DON
+			}
+			265 = {
+				add_core_of = DON
+			}
+			237 = {
+				add_core_of = DON
+			}
+			236 = {
+				add_core_of = DON
+			}
 		}
 	}
-
 	option = {
 		name = pavel_events.1.a
 		ai_chance = {
 			base = 10
 		}
-		
 		DON = {
 			transfer_state = 218
 			transfer_state = 245
@@ -1872,13 +2045,17 @@ country_event = {
 			transfer_state = 265
 			if = {
 				limit = {
-					PREV = { controls_state = 236 }
+					PREV = {
+						controls_state = 236
+					}
 				}
 				transfer_state = 236
 			}
 			if = {
 				limit = {
-					PREV = { controls_state = 237 }
+					PREV = {
+						controls_state = 237
+					}
 				}
 				transfer_state = 237
 			}
@@ -1902,20 +2079,18 @@ country_event = {
 			}
 			DON = {
 				add_to_war = {
-					targeted_alliance = PREV 
+					targeted_alliance = PREV
 					enemy = SOV
 					hostility_reason = asked_to_join
 				}
 			}
 		}
 	}
-	
 	option = {
 		name = pavel_events.1.b
 		ai_chance = {
 			base = 10
 		}
-		
 		DON = {
 			transfer_state = 218
 			transfer_state = 245
@@ -1924,13 +2099,17 @@ country_event = {
 			transfer_state = 265
 			if = {
 				limit = {
-					PREV = { controls_state = 236 }
+					PREV = {
+						controls_state = 236
+					}
 				}
 				transfer_state = 236
 			}
 			if = {
 				limit = {
-					PREV = { controls_state = 237 }
+					PREV = {
+						controls_state = 237
+					}
 				}
 				transfer_state = 237
 			}
@@ -1948,7 +2127,7 @@ country_event = {
 			}
 			DON = {
 				add_to_war = {
-					targeted_alliance = PREV 
+					targeted_alliance = PREV
 					enemy = SOV
 					hostility_reason = asked_to_join
 				}
@@ -1963,26 +2142,32 @@ country_event = {
 	title = pavel_events.2.t
 	desc = pavel_events.2.desc
 	picture = GFX_report_event_generic_military_parade
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	immediate = {
 		hidden_effect = {
-			234 = { add_core_of = KUB }
-			235 = { add_core_of = KUB }
-			233 = { add_core_of = KUB }
-			232 = { add_core_of = KUB }
-			137 = { add_core_of = KUB }
+			234 = {
+				add_core_of = KUB
+			}
+			235 = {
+				add_core_of = KUB
+			}
+			233 = {
+				add_core_of = KUB
+			}
+			232 = {
+				add_core_of = KUB
+			}
+			137 = {
+				add_core_of = KUB
+			}
 		}
 	}
-
 	option = {
 		name = pavel_events.2.a
 		ai_chance = {
 			base = 10
 		}
-		
 		KUB = {
 			transfer_state = 234
 			transfer_state = 235
@@ -1990,7 +2175,9 @@ country_event = {
 			transfer_state = 232
 			if = {
 				limit = {
-					PREV = { controls_state = 137 }
+					PREV = {
+						controls_state = 137
+					}
 				}
 				transfer_state = 137
 			}
@@ -2014,20 +2201,18 @@ country_event = {
 			}
 			KUB = {
 				add_to_war = {
-					targeted_alliance = PREV 
+					targeted_alliance = PREV
 					enemy = SOV
 					hostility_reason = asked_to_join
 				}
 			}
 		}
 	}
-	
 	option = {
 		name = pavel_events.2.b
 		ai_chance = {
 			base = 10
 		}
-		
 		KUB = {
 			transfer_state = 234
 			transfer_state = 235
@@ -2035,7 +2220,9 @@ country_event = {
 			transfer_state = 232
 			if = {
 				limit = {
-					PREV = { controls_state = 137 }
+					PREV = {
+						controls_state = 137
+					}
 				}
 				transfer_state = 137
 			}
@@ -2053,7 +2240,7 @@ country_event = {
 			}
 			KUB = {
 				add_to_war = {
-					targeted_alliance = PREV 
+					targeted_alliance = PREV
 					enemy = SOV
 					hostility_reason = asked_to_join
 				}
@@ -2068,14 +2255,12 @@ country_event = {
 	title = pavel_events.3.t
 	desc = pavel_events.3.desc
 	picture = GFX_report_event_generic_panzer_attack
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	immediate = {
 	}
-
-	option = { #Cede the territory
+	option = {
+		#Cede the territory
 		name = pavel_events.3.a
 		ai_chance = {
 			base = 10
@@ -2100,7 +2285,8 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				any_other_country = { #Puppets shouldn't cede territory
+				any_other_country = {
+					#Puppets shouldn't cede territory
 					NOT = {
 						tag = POL
 					}
@@ -2110,59 +2296,85 @@ country_event = {
 		}
 		effect_tooltip = {
 			if = {
-				limit = { owns_state = 67 }
+				limit = {
+					owns_state = 67
+				}
 				FROM = {
 					transfer_state = 67
-					67 = { add_core_of = PREV }
+					67 = {
+						add_core_of = PREV
+					}
 				}
 			}
 			if = {
-				limit = { owns_state = 66 }
+				limit = {
+					owns_state = 66
+				}
 				FROM = {
 					transfer_state = 66
-					66 = { add_core_of = PREV }
+					66 = {
+						add_core_of = PREV
+					}
 				}
 			}
 			if = {
-				limit = { owns_state = 68 }
+				limit = {
+					owns_state = 68
+				}
 				FROM = {
 					transfer_state = 68
-					68 = { add_core_of = PREV }
+					68 = {
+						add_core_of = PREV
+					}
 				}
 			}
 			if = {
-				limit = { owns_state = 63 }
+				limit = {
+					owns_state = 63
+				}
 				FROM = {
 					transfer_state = 63
-					63 = { add_core_of = PREV }
+					63 = {
+						add_core_of = PREV
+					}
 				}
 			}
 			if = {
-				limit = { owns_state = 5 }
+				limit = {
+					owns_state = 5
+				}
 				FROM = {
 					transfer_state = 5
-					5 = { add_core_of = PREV }
+					5 = {
+						add_core_of = PREV
+					}
 				}
 			}
 			if = {
-				limit = { owns_state = 763 }
+				limit = {
+					owns_state = 763
+				}
 				FROM = {
 					transfer_state = 763
-					763 = { add_core_of = PREV }
+					763 = {
+						add_core_of = PREV
+					}
 				}
 			}
 		}
 		hidden_effect = {
 			FROM = {
-				country_event = { id = pavel_events.301 }
+				country_event = {
+					id = pavel_events.301
+				}
 			}
 		}
 	}
-	
-	option = { #Don't cede the territory
+	option = {
+		#Don't cede the territory
 		name = pavel_events.3.b
 		ai_chance = {
-			base = 90 #Germany should be unlikely to cede territory to Poland
+			base = 90			#Germany should be unlikely to cede territory to Poland
 			modifier = {
 				factor = 0.5
 				strength_ratio = {
@@ -2170,7 +2382,8 @@ country_event = {
 					ratio > 1
 				}
 			}
-			modifier = { #If Germany has basically no army and they're not in a faction, they shouldn't really refuse.
+			modifier = {
+				#If Germany has basically no army and they're not in a faction, they shouldn't really refuse.
 				factor = 0
 				strength_ratio = {
 					tag = POL
@@ -2178,10 +2391,13 @@ country_event = {
 				}
 				is_in_faction = no
 			}
-			modifier = { #German subjects shouldn't give up territory.
+			modifier = {
+				#German subjects shouldn't give up territory.
 				factor = 0
 				is_subject = yes
-				NOT = { is_subject_of = POL }
+				NOT = {
+					is_subject_of = POL
+				}
 			}
 			modifier = {
 				factor = 0
@@ -2196,80 +2412,121 @@ country_event = {
 				create_wargoal = {
 					type = take_state_focus
 					target = GER
-					generator = { 67 66 68 63 5 763 }
+					generator = {
+						67
+						66
+						68
+						63
+						5
+						763
+					}
 				}
 			}
 		}
 		hidden_effect = {
 			FROM = {
-				country_event = { id = pavel_events.302 }
+				country_event = {
+					id = pavel_events.302
+				}
 			}
 		}
 	}
 }
+
 #Poland is informed, given the territory
 country_event = {
 	id = pavel_events.301
 	title = pavel_events.301.t
 	desc = pavel_events.301.desc
 	picture = GFX_report_event_generic_peaceful_annexation
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	immediate = {
 	}
-
 	option = {
 		name = pavel_events.301.a
 		ai_chance = {
 			base = 10
 		}
 		if = {
-			limit = { FROM = { owns_state = 67 } }
+			limit = {
+				FROM = {
+					owns_state = 67
+				}
+			}
 			transfer_state = 67
-			67 = { add_core_of = PREV }
+			67 = {
+				add_core_of = PREV
+			}
 		}
 		if = {
-			limit = { FROM = { owns_state = 66 } }
+			limit = {
+				FROM = {
+					owns_state = 66
+				}
+			}
 			transfer_state = 66
-			66 = { add_core_of = PREV }
+			66 = {
+				add_core_of = PREV
+			}
 		}
 		if = {
-			limit = { FROM = { owns_state = 68 } }
+			limit = {
+				FROM = {
+					owns_state = 68
+				}
+			}
 			transfer_state = 68
-			68 = { add_core_of = PREV }
+			68 = {
+				add_core_of = PREV
+			}
 		}
 		if = {
-			limit = { FROM = { owns_state = 63 } }
+			limit = {
+				FROM = {
+					owns_state = 63
+				}
+			}
 			transfer_state = 63
-			63 = { add_core_of = PREV }
+			63 = {
+				add_core_of = PREV
+			}
 		}
 		if = {
-			limit = { FROM = { owns_state = 5 } }
+			limit = {
+				FROM = {
+					owns_state = 5
+				}
+			}
 			transfer_state = 5
-			5 = { add_core_of = PREV }
+			5 = {
+				add_core_of = PREV
+			}
 		}
 		if = {
-			limit = { FROM = { owns_state = 763 } }
+			limit = {
+				FROM = {
+					owns_state = 763
+				}
+			}
 			transfer_state = 763
-			763 = { add_core_of = PREV }
+			763 = {
+				add_core_of = PREV
+			}
 		}
 	}
 }
+
 #Poland informed of German rejection, gain wargoal
 country_event = {
 	id = pavel_events.302
 	title = pavel_events.302.t
 	desc = pavel_events.302.desc
 	picture = GFX_report_event_military_planning
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	immediate = {
 	}
-	
 	option = {
 		name = pavel_events.302.a
 		ai_chance = {
@@ -2278,7 +2535,14 @@ country_event = {
 		create_wargoal = {
 			type = take_state_focus
 			target = GER
-			generator = { 67 66 68 63 5 763 }
+			generator = {
+				67
+				66
+				68
+				63
+				5
+				763
+			}
 		}
 	}
 }
@@ -2290,18 +2554,16 @@ country_event = {
 	title = NSB_poland_communist_events.1.t
 	desc = NSB_poland_communist_events.1.desc
 	picture = GFX_report_event_sanation_left_victory
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.1.a
 		ai_chance = {
 			base = 55
 			modifier = {
-				add = 10 
+				add = 10
 				has_opinion = {
-					target = SOU 
+					target = SOU
 					value < 50
 				}
 			}
@@ -2318,12 +2580,11 @@ country_event = {
 		}
 		promote_character = POL_maria_koszutska
 	}
-
 	option = {
 		name = NSB_poland_communist_events.1.b
 		trigger = {
 			SOU = {
-				exists = yes 
+				exists = yes
 				has_government = communism
 			}
 		}
@@ -2356,21 +2617,28 @@ country_event = {
 	title = NSB_poland_communist_events.2.t
 	desc = NSB_poland_communist_events.2.desc
 	picture = GFX_report_event_lithuanian_ultimatum
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-	option = { #Yes, become puppet
+	option = {
+		#Yes, become puppet
 		name = NSB_poland_communist_events.2.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				POL = { has_army_size = { size < 40 } }
+				POL = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				add = 20
@@ -2382,42 +2650,56 @@ country_event = {
 			}
 		}
 		effect_tooltip = {
-			FROM = { puppet = ROOT }
+			FROM = {
+				puppet = ROOT
+			}
 		}
 		hidden_effect = {
-			FROM = { country_event = NSB_poland_communist_events.201 }
+			FROM = {
+				country_event = NSB_poland_communist_events.201
+			}
 		}
 	}
-	
-	option = { #No, Poland gets wargoal
+	option = {
+		#No, Poland gets wargoal
 		name = NSB_poland_communist_events.2.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				POL = { has_army_size = { size < 30 } }
+				POL = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				factor = 2
 				is_in_faction = yes
-				NOT = { is_in_faction_with = POL }
+				NOT = {
+					is_in_faction_with = POL
+				}
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = LIT
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = LIT
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 		}
 		effect_tooltip = {
@@ -2429,7 +2711,9 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			FROM = { country_event = NSB_poland_communist_events.202 }
+			FROM = {
+				country_event = NSB_poland_communist_events.202
+			}
 		}
 	}
 }
@@ -2440,11 +2724,10 @@ country_event = {
 	title = NSB_poland_communist_events.201.t
 	desc = NSB_poland_communist_events.201.desc
 	picture = GFX_report_event_generic_peaceful_annexation
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-	option = { #Yes, become puppet
+	option = {
+		#Yes, become puppet
 		name = NSB_poland_communist_events.201.a
 		puppet = FROM
 	}
@@ -2456,11 +2739,10 @@ country_event = {
 	title = NSB_poland_communist_events.202.t
 	desc = NSB_poland_communist_events.202.desc
 	picture = GFX_report_event_polish_tanks_01
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-	option = { #Gain wargoal
+	option = {
+		#Gain wargoal
 		name = NSB_poland_communist_events.202.a
 		create_wargoal = {
 			type = puppet_wargoal_focus
@@ -2475,21 +2757,28 @@ country_event = {
 	title = NSB_poland_communist_events.3.t
 	desc = NSB_poland_communist_events.3.desc
 	picture = GFX_report_event_generic_peaceful_annexation
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-	option = { #Yes, become annexed
+	option = {
+		#Yes, become annexed
 		name = NSB_poland_communist_events.3.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				POL = { has_army_size = { size < 40 } }
+				POL = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				add = 20
@@ -2501,47 +2790,64 @@ country_event = {
 			}
 		}
 		effect_tooltip = {
-			FROM = { annex_country = { target = ROOT transfer_troops = yes } }
+			FROM = {
+				annex_country = {
+					target = ROOT
+					transfer_troops = yes
+				}
+			}
 		}
 		hidden_effect = {
-			FROM = { country_event = NSB_poland_communist_events.301 }
+			FROM = {
+				country_event = NSB_poland_communist_events.301
+			}
 		}
 		custom_effect_tooltip = GAME_OVER_TT
 	}
-	
-	option = { #No, Poland gets wargoal
+	option = {
+		#No, Poland gets wargoal
 		name = NSB_poland_communist_events.3.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				POL = { has_army_size = { size < 30 } }
+				POL = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				factor = 2
 				is_in_faction = yes
-				NOT = { is_in_faction_with = POL }
+				NOT = {
+					is_in_faction_with = POL
+				}
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = ROOT
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = ROOT
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 			modifier = {
 				is_subject_of = POL
-				factor = 0 #Subjects shouldn't refuse
+				factor = 0				#Subjects shouldn't refuse
 			}
 		}
 		effect_tooltip = {
@@ -2553,7 +2859,9 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			FROM = { country_event = NSB_poland_communist_events.302 }
+			FROM = {
+				country_event = NSB_poland_communist_events.302
+			}
 		}
 	}
 }
@@ -2564,16 +2872,18 @@ country_event = {
 	title = NSB_poland_communist_events.301.t
 	desc = NSB_poland_communist_events.301.desc
 	picture = GFX_report_event_poland_rejects
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-	option = { #Yes, become annexed
+	option = {
+		#Yes, become annexed
 		name = NSB_poland_communist_events.301.a
 		ai_chance = {
 			base = 10
 		}
-		annex_country = { target = FROM transfer_troops = yes }
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
 	}
 }
 
@@ -2583,18 +2893,19 @@ country_event = {
 	title = NSB_poland_communist_events.302.t
 	desc = NSB_poland_communist_events.302.desc
 	picture = GFX_report_event_generic_peaceful_annexation
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-	option = { #Yes, become annexed
+	option = {
+		#Yes, become annexed
 		name = NSB_poland_communist_events.302.a
 		ai_chance = {
 			base = 10
 		}
 		if = {
 			limit = {
-				ROOT = { is_faction_leader = yes }
+				ROOT = {
+					is_faction_leader = yes
+				}
 				FROM = {
 					is_in_faction_with = ROOT
 				}
@@ -2625,87 +2936,152 @@ country_event = {
 	title = NSB_poland_communist_events.4.t
 	desc = NSB_poland_communist_events.4.desc
 	picture = GFX_report_event_sanation_left_victory
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.4.a
 		ai_chance = {
-			base = 50 #Why would they say no?
-			modifier = { #They are at war with someone I'm not
+			base = 50			#Why would they say no?
+			modifier = {
+				#They are at war with someone I'm not
 				factor = 0.5
 				any_other_country = {
 					is_major = yes
 					has_war_with = POL
-					NOT = { has_war_with = ROOT }
+					NOT = {
+						has_war_with = ROOT
+					}
 				}
 			}
-			modifier = { #They are at war with the Allies and I am not
+			modifier = {
+				#They are at war with the Allies and I am not
 				factor = 0.1
 				any_other_country = {
 					is_major = yes
 					has_government = democratic
 					has_war_with = POL
-					NOT = { has_war_with = ROOT }
+					NOT = {
+						has_war_with = ROOT
+					}
 				}
 			}
-			modifier = { #I have already signed Molotov-Ribbentrop
+			modifier = {
+				#I have already signed Molotov-Ribbentrop
 				factor = 0.2
 				has_global_flag = sov_yes_pact
 			}
-			modifier = { #I refused Molotov-Ribbentrop
+			modifier = {
+				#I refused Molotov-Ribbentrop
 				factor = 2
 				has_global_flag = sov_no_pact
 			}
 		}
-		hidden_effect = { POL = { country_event = NSB_poland_communist_events.401 } }
-		96 = { add_core_of = SOV }
-		95 = { add_core_of = SOV }
-		94 = { add_core_of = SOV }
-		93 = { add_core_of = SOV }
-		91 = { add_core_of = SOV }
-		89 = { add_core_of = SOV }
-		97 = { add_core_of = SOV }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_poland_communist_events.401
+			}
+		}
+		96 = {
+			add_core_of = SOV
+		}
+		95 = {
+			add_core_of = SOV
+		}
+		94 = {
+			add_core_of = SOV
+		}
+		93 = {
+			add_core_of = SOV
+		}
+		91 = {
+			add_core_of = SOV
+		}
+		89 = {
+			add_core_of = SOV
+		}
+		97 = {
+			add_core_of = SOV
+		}
 		if = {
-			limit = { POL = { owns_state = 96 controls_state = 96 } }
+			limit = {
+				POL = {
+					owns_state = 96
+					controls_state = 96
+				}
+			}
 			transfer_state = 96
 		}
 		if = {
-			limit = { POL = { owns_state = 95 controls_state = 95 } }
+			limit = {
+				POL = {
+					owns_state = 95
+					controls_state = 95
+				}
+			}
 			transfer_state = 95
 		}
 		if = {
-			limit = { POL = { owns_state = 94 controls_state = 94 } }
+			limit = {
+				POL = {
+					owns_state = 94
+					controls_state = 94
+				}
+			}
 			transfer_state = 94
 		}
 		if = {
-			limit = { POL = { owns_state = 93 controls_state = 93 } }
+			limit = {
+				POL = {
+					owns_state = 93
+					controls_state = 93
+				}
+			}
 			transfer_state = 93
 		}
 		if = {
-			limit = { POL = { owns_state = 91 controls_state = 91 } }
+			limit = {
+				POL = {
+					owns_state = 91
+					controls_state = 91
+				}
+			}
 			transfer_state = 91
 		}
 		if = {
-			limit = { POL = { owns_state = 89 controls_state = 89 } }
+			limit = {
+				POL = {
+					owns_state = 89
+					controls_state = 89
+				}
+			}
 			transfer_state = 89
 		}
 		if = {
-			limit = { POL = { owns_state = 97 controls_state = 97 } }
+			limit = {
+				POL = {
+					owns_state = 97
+					controls_state = 97
+				}
+			}
 			transfer_state = 97
 		}
 		if = {
-			limit = { POL = { owns_state = 784 controls_state = 784 } }
+			limit = {
+				POL = {
+					owns_state = 784
+					controls_state = 784
+				}
+			}
 			transfer_state = 784
-			784 = { add_core_of = SOV }
+			784 = {
+				add_core_of = SOV
+			}
 		}
 		set_autonomy = {
 			target = POL
 			autonomy_state = autonomy_puppet
 		}
 	}
-
 	option = {
 		name = NSB_poland_communist_events.4.b
 		ai_chance = {
@@ -2717,7 +3093,11 @@ country_event = {
 				}
 			}
 		}
-		hidden_effect = { POL = { country_event = NSB_poland_communist_events.402 } }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_poland_communist_events.402
+			}
+		}
 	}
 }
 
@@ -2727,56 +3107,111 @@ country_event = {
 	title = NSB_poland_communist_events.401.t
 	desc = NSB_poland_communist_events.401.desc
 	picture = GFX_report_event_sanation_left_victory
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
-	option = { #Poland is told what the effects are again
+	option = {
+		#Poland is told what the effects are again
 		name = NSB_poland_communist_events.401.a
 		ai_chance = {
 			base = 10
 		}
 		effect_tooltip = {
-			96 = { add_core_of = SOV }
-			95 = { add_core_of = SOV }
-			94 = { add_core_of = SOV }
-			93 = { add_core_of = SOV }
-			91 = { add_core_of = SOV }
-			89 = { add_core_of = SOV }
-			97 = { add_core_of = SOV }
+			96 = {
+				add_core_of = SOV
+			}
+			95 = {
+				add_core_of = SOV
+			}
+			94 = {
+				add_core_of = SOV
+			}
+			93 = {
+				add_core_of = SOV
+			}
+			91 = {
+				add_core_of = SOV
+			}
+			89 = {
+				add_core_of = SOV
+			}
+			97 = {
+				add_core_of = SOV
+			}
 			SOV = {
 				if = {
-					limit = { POL = { owns_state = 96 controls_state = 96 } }
+					limit = {
+						POL = {
+							owns_state = 96
+							controls_state = 96
+						}
+					}
 					transfer_state = 96
 				}
 				if = {
-					limit = { POL = { owns_state = 95 controls_state = 95 } }
+					limit = {
+						POL = {
+							owns_state = 95
+							controls_state = 95
+						}
+					}
 					transfer_state = 95
 				}
 				if = {
-					limit = { POL = { owns_state = 94 controls_state = 94 } }
+					limit = {
+						POL = {
+							owns_state = 94
+							controls_state = 94
+						}
+					}
 					transfer_state = 94
 				}
 				if = {
-					limit = { POL = { owns_state = 93 controls_state = 93 } }
+					limit = {
+						POL = {
+							owns_state = 93
+							controls_state = 93
+						}
+					}
 					transfer_state = 93
 				}
 				if = {
-					limit = { POL = { owns_state = 91 controls_state = 91 } }
+					limit = {
+						POL = {
+							owns_state = 91
+							controls_state = 91
+						}
+					}
 					transfer_state = 91
 				}
 				if = {
-					limit = { POL = { owns_state = 89 controls_state = 89 } }
+					limit = {
+						POL = {
+							owns_state = 89
+							controls_state = 89
+						}
+					}
 					transfer_state = 89
 				}
 				if = {
-					limit = { POL = { owns_state = 97 controls_state = 97 } }
+					limit = {
+						POL = {
+							owns_state = 97
+							controls_state = 97
+						}
+					}
 					transfer_state = 97
 				}
 				if = {
-					limit = { POL = { owns_state = 784 controls_state = 784 } }
+					limit = {
+						POL = {
+							owns_state = 784
+							controls_state = 784
+						}
+					}
 					transfer_state = 784
-					784 = { add_core_of = SOV }
+					784 = {
+						add_core_of = SOV
+					}
 				}
 				set_autonomy = {
 					target = POL
@@ -2793,11 +3228,10 @@ country_event = {
 	title = NSB_poland_communist_events.402.t
 	desc = NSB_poland_communist_events.402.desc
 	picture = GFX_report_event_sanation_left_victory
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
-	option = { #Poland moves to the independent Communist path
+	option = {
+		#Poland moves to the independent Communist path
 		name = NSB_poland_communist_events.402.a
 		ai_chance = {
 			base = 10
@@ -2818,29 +3252,30 @@ country_event = {
 	title = NSB_poland_communist_events.5.t
 	desc = NSB_poland_communist_events.5.desc
 	picture = GFX_report_event_poland_rejects
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.5.a
 		ai_chance = {
-			base = 50 #They shouldn't usually accept this
-			modifier = { #Oh they may actually be able to beat me
+			base = 50			#They shouldn't usually accept this
+			modifier = {
+				#Oh they may actually be able to beat me
 				factor = 0.5
 				strength_ratio = {
 					tag = POL
 					ratio > 1
 				}
 			}
-			modifier = { #Oh they may actually be able to beat me
+			modifier = {
+				#Oh they may actually be able to beat me
 				factor = 0.75
 				strength_ratio = {
 					tag = POL
 					ratio > 2
 				}
 			}
-			modifier = { #Oh they can definitely beat me
+			modifier = {
+				#Oh they can definitely beat me
 				factor = 0.1
 				strength_ratio = {
 					tag = POL
@@ -2849,7 +3284,7 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			POL = { 
+			POL = {
 				country_event = NSB_poland_communist_events.501
 				leave_faction = yes
 			}
@@ -2859,20 +3294,25 @@ country_event = {
 				target = POL
 				autonomy_state = autonomy_free
 			}
-			POL = { leave_faction = yes }
+			POL = {
+				leave_faction = yes
+			}
 			declare_war_on = {
 				target = POL
 				type = annex_everything
 			}
 		}
 	}
-
 	option = {
 		name = NSB_poland_communist_events.5.b
 		ai_chance = {
 			base = 10
 		}
-		hidden_effect = { POL = { country_event = NSB_poland_communist_events.502 } }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_poland_communist_events.502
+			}
+		}
 		effect_tooltip = {
 			set_autonomy = {
 				target = POL
@@ -2888,10 +3328,8 @@ country_event = {
 	title = NSB_poland_communist_events.501.t
 	desc = NSB_poland_communist_events.501.desc
 	picture = GFX_report_event_polish_tanks_01
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.501.a
 		ai_chance = {
@@ -2913,17 +3351,14 @@ country_event = {
 	title = NSB_poland_communist_events.502.t
 	desc = NSB_poland_communist_events.502.desc
 	picture = GFX_report_event_sanation_left_victory
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.502.a
 		ai_chance = {
 			base = 10
 		}
 	}
-	
 	option = {
 		name = NSB_poland_communist_events.502.b
 		ai_chance = {
@@ -2939,17 +3374,17 @@ country_event = {
 	title = NSB_poland_communist_events.6.t
 	desc = NSB_poland_communist_events.6.desc
 	picture = GFX_report_event_sanation_left_victory
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.6.a
 		ai_chance = {
-			base = 50 #They should usually be okay with this for the player
+			base = 50			#They should usually be okay with this for the player
 			modifier = {
 				factor = 0
-				POL = { is_ai = yes }
+				POL = {
+					is_ai = yes
+				}
 			}
 		}
 		hidden_effect = {
@@ -2958,82 +3393,168 @@ country_event = {
 			}
 		}
 		effect_tooltip = {
-			96 = { add_core_of = POL }
-			95 = { add_core_of = POL }
-			94 = { add_core_of = POL }
-			93 = { add_core_of = POL }
-			91 = { add_core_of = POL }
-			89 = { add_core_of = POL }
-			97 = { add_core_of = POL }
+			96 = {
+				add_core_of = POL
+			}
+			95 = {
+				add_core_of = POL
+			}
+			94 = {
+				add_core_of = POL
+			}
+			93 = {
+				add_core_of = POL
+			}
+			91 = {
+				add_core_of = POL
+			}
+			89 = {
+				add_core_of = POL
+			}
+			97 = {
+				add_core_of = POL
+			}
 			POL = {
 				if = {
-					limit = { ROOT = { owns_state = 96 controls_state = 96 } }
+					limit = {
+						ROOT = {
+							owns_state = 96
+							controls_state = 96
+						}
+					}
 					transfer_state = 96
 				}
 				if = {
-					limit = { ROOT = { owns_state = 95 controls_state = 95 } }
+					limit = {
+						ROOT = {
+							owns_state = 95
+							controls_state = 95
+						}
+					}
 					transfer_state = 95
 				}
 				if = {
-					limit = { ROOT = { owns_state = 94 controls_state = 94 } }
+					limit = {
+						ROOT = {
+							owns_state = 94
+							controls_state = 94
+						}
+					}
 					transfer_state = 94
 				}
 				if = {
-					limit = { ROOT = { owns_state = 93 controls_state = 93 } }
+					limit = {
+						ROOT = {
+							owns_state = 93
+							controls_state = 93
+						}
+					}
 					transfer_state = 93
 				}
 				if = {
-					limit = { ROOT = { owns_state = 91 controls_state = 91 } }
+					limit = {
+						ROOT = {
+							owns_state = 91
+							controls_state = 91
+						}
+					}
 					transfer_state = 91
 				}
 				if = {
-					limit = { ROOT = { owns_state = 89 controls_state = 89 } }
+					limit = {
+						ROOT = {
+							owns_state = 89
+							controls_state = 89
+						}
+					}
 					transfer_state = 89
 				}
 				if = {
-					limit = { ROOT = { owns_state = 97 controls_state = 97 } }
+					limit = {
+						ROOT = {
+							owns_state = 97
+							controls_state = 97
+						}
+					}
 					transfer_state = 97
 				}
 				#Lithuanian states
 				if = {
-					limit = { ROOT = { owns_state = 784 controls_state = 784 } }
+					limit = {
+						ROOT = {
+							owns_state = 784
+							controls_state = 784
+						}
+					}
 					transfer_state = 784
-					784 = { add_core_of = POL }
+					784 = {
+						add_core_of = POL
+					}
 				}
 				if = {
-					limit = { ROOT = { owns_state = 11 controls_state = 11 } }
+					limit = {
+						ROOT = {
+							owns_state = 11
+							controls_state = 11
+						}
+					}
 					transfer_state = 11
 				}
 				if = {
-					limit = { ROOT = { owns_state = 188 controls_state = 188 } }
+					limit = {
+						ROOT = {
+							owns_state = 188
+							controls_state = 188
+						}
+					}
 					transfer_state = 188
 				}
 				if = {
-					limit = { ROOT = { owns_state = 189 controls_state = 189 } }
+					limit = {
+						ROOT = {
+							owns_state = 189
+							controls_state = 189
+						}
+					}
 					transfer_state = 189
 				}
 				if = {
-					limit = { ROOT = { owns_state = 814 controls_state = 814 } }
+					limit = {
+						ROOT = {
+							owns_state = 814
+							controls_state = 814
+						}
+					}
 					transfer_state = 814
 				}
 				if = {
-					limit = { ROOT = { owns_state = 815 controls_state = 815 } }
+					limit = {
+						ROOT = {
+							owns_state = 815
+							controls_state = 815
+						}
+					}
 					transfer_state = 815
 				}
 			}
 		}
 	}
-
 	option = {
 		name = NSB_poland_communist_events.6.b
 		ai_chance = {
 			base = 50
 			modifier = {
 				factor = 0
-				POL = { is_ai = no }
+				POL = {
+					is_ai = no
+				}
 			}
 		}
-		hidden_effect = { POL = { country_event = NSB_poland_communist_events.602 } }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_poland_communist_events.602
+			}
+		}
 	}
 }
 
@@ -3043,74 +3564,153 @@ country_event = {
 	title = NSB_poland_communist_events.601.t
 	desc = NSB_poland_communist_events.601.desc
 	picture = GFX_report_event_generic_peaceful_annexation
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.601.a
 		ai_chance = {
 			base = 10
 		}
-		96 = { add_core_of = POL }
-		95 = { add_core_of = POL }
-		94 = { add_core_of = POL }
-		93 = { add_core_of = POL }
-		91 = { add_core_of = POL }
-		89 = { add_core_of = POL }
-		97 = { add_core_of = POL }
+		96 = {
+			add_core_of = POL
+		}
+		95 = {
+			add_core_of = POL
+		}
+		94 = {
+			add_core_of = POL
+		}
+		93 = {
+			add_core_of = POL
+		}
+		91 = {
+			add_core_of = POL
+		}
+		89 = {
+			add_core_of = POL
+		}
+		97 = {
+			add_core_of = POL
+		}
 		if = {
-			limit = { FROM = { owns_state = 96 controls_state = 96 } }
+			limit = {
+				FROM = {
+					owns_state = 96
+					controls_state = 96
+				}
+			}
 			transfer_state = 96
 		}
 		if = {
-			limit = { FROM = { owns_state = 95 controls_state = 95 } }
+			limit = {
+				FROM = {
+					owns_state = 95
+					controls_state = 95
+				}
+			}
 			transfer_state = 95
 		}
 		if = {
-			limit = { FROM = { owns_state = 94 controls_state = 94 } }
+			limit = {
+				FROM = {
+					owns_state = 94
+					controls_state = 94
+				}
+			}
 			transfer_state = 94
 		}
 		if = {
-			limit = { FROM = { owns_state = 93 controls_state = 93 } }
+			limit = {
+				FROM = {
+					owns_state = 93
+					controls_state = 93
+				}
+			}
 			transfer_state = 93
 		}
 		if = {
-			limit = { FROM = { owns_state = 91 controls_state = 91 } }
+			limit = {
+				FROM = {
+					owns_state = 91
+					controls_state = 91
+				}
+			}
 			transfer_state = 91
 		}
 		if = {
-			limit = { FROM = { owns_state = 89 controls_state = 89 } }
+			limit = {
+				FROM = {
+					owns_state = 89
+					controls_state = 89
+				}
+			}
 			transfer_state = 89
 		}
 		if = {
-			limit = { FROM = { owns_state = 97 controls_state = 97 } }
+			limit = {
+				FROM = {
+					owns_state = 97
+					controls_state = 97
+				}
+			}
 			transfer_state = 97
 		}
 		#Lithuanian states
 		if = {
-			limit = { FROM = { owns_state = 784 controls_state = 784 } }
+			limit = {
+				FROM = {
+					owns_state = 784
+					controls_state = 784
+				}
+			}
 			transfer_state = 784
-			784 = { add_core_of = POL }
+			784 = {
+				add_core_of = POL
+			}
 		}
 		if = {
-			limit = { FROM = { owns_state = 11 controls_state = 11 } }
+			limit = {
+				FROM = {
+					owns_state = 11
+					controls_state = 11
+				}
+			}
 			transfer_state = 11
 		}
 		if = {
-			limit = { FROM = { owns_state = 188 controls_state = 188 } }
+			limit = {
+				FROM = {
+					owns_state = 188
+					controls_state = 188
+				}
+			}
 			transfer_state = 188
 		}
 		if = {
-			limit = { FROM = { owns_state = 189 controls_state = 189 } }
+			limit = {
+				FROM = {
+					owns_state = 189
+					controls_state = 189
+				}
+			}
 			transfer_state = 189
 		}
 		if = {
-			limit = { FROM = { owns_state = 814 controls_state = 814 } }
+			limit = {
+				FROM = {
+					owns_state = 814
+					controls_state = 814
+				}
+			}
 			transfer_state = 814
 		}
 		if = {
-			limit = { FROM = { owns_state = 815 controls_state = 815 } }
+			limit = {
+				FROM = {
+					owns_state = 815
+					controls_state = 815
+				}
+			}
 			transfer_state = 815
 		}
 	}
@@ -3122,20 +3722,19 @@ country_event = {
 	title = NSB_poland_communist_events.602.t
 	desc = NSB_poland_communist_events.602.desc
 	picture = GFX_report_event_sanation_left_victory
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_communist_events.602.a
 		ai_chance = {
 			base = 10
 		}
 	}
-	
-	option = { #No Eastern Poland? I declare independence!
+	option = {
+		#No Eastern Poland? I declare independence!
 		name = NSB_poland_communist_events.602.b
-		ai_chance = { #The AI shouldn't do this
+		ai_chance = {
+			#The AI shouldn't do this
 			base = 0
 		}
 		uncomplete_national_focus = {
@@ -3154,10 +3753,8 @@ country_event = {
 	title = NSB_poland_democratic_events.1.t
 	desc = NSB_poland_democratic_events.1.desc
 	picture = GFX_report_event_sanation_revolt
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_poland_democratic_events.1.a
 		ai_chance = {
@@ -3171,7 +3768,6 @@ country_event = {
 		}
 		promote_character = POL_wincenty_witos
 	}
-
 	option = {
 		name = NSB_poland_democratic_events.1.b
 		ai_chance = {
@@ -3182,59 +3778,70 @@ country_event = {
 }
 
 add_namespace = NSB_polish_fascist_events
-
 #German event; Poland wants to surrender Western Poland and become a German puppet
 country_event = {
 	id = NSB_polish_fascist_events.1
 	title = NSB_polish_fascist_events.1.t
 	desc = NSB_polish_fascist_events.1.desc
 	picture = GFX_report_event_danzig_joins_nazis
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.1.a
 		ai_chance = {
-			base = 50 #Why would they say no?
-			modifier = { #They are at war with someone I'm not
+			base = 50			#Why would they say no?
+			modifier = {
+				#They are at war with someone I'm not
 				factor = 0.5
 				any_other_country = {
 					is_major = yes
 					has_war_with = POL
-					NOT = { has_war_with = ROOT }
+					NOT = {
+						has_war_with = ROOT
+					}
 				}
 			}
-			modifier = { #They are at war with the Allies and I am not
+			modifier = {
+				#They are at war with the Allies and I am not
 				factor = 0.1
 				any_other_country = {
 					is_major = yes
 					has_government = democratic
 					has_war_with = POL
-					NOT = { has_war_with = ROOT }
+					NOT = {
+						has_war_with = ROOT
+					}
 				}
 			}
-			modifier = { #I have already signed Molotov-Ribbentrop
+			modifier = {
+				#I have already signed Molotov-Ribbentrop
 				factor = 0.2
 				has_global_flag = sov_yes_pact
 			}
-			modifier = { #Soviets refused MR Pact
+			modifier = {
+				#Soviets refused MR Pact
 				factor = 2
 				has_global_flag = sov_no_pact
 			}
 		}
-		hidden_effect = { POL = { country_event = NSB_polish_fascist_events.101 } }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_polish_fascist_events.101
+			}
+		}
 		if = {
 			limit = {
 				has_global_flag = sov_yes_pact
 			}
-			SOV = { country_event = germany.16 }
+			SOV = {
+				country_event = germany.16
+			}
 			clr_global_flag = sov_yes_pact
 			diplomatic_relation = {
 				country = SOV
 				relation = non_aggression_pact
 				active = no
-			}		
+			}
 			SOV = {
 				add_state_claim = 96
 				add_state_claim = 95
@@ -3255,19 +3862,22 @@ country_event = {
 		POL_become_german_puppet_effect = yes
 		set_global_flag = beck_ribbentrop_signed
 	}
-
 	option = {
 		name = NSB_polish_fascist_events.1.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				factor = 0 #If the player is doing this, the AI should always say yes.
+				factor = 0				#If the player is doing this, the AI should always say yes.
 				POL = {
 					is_ai = no
 				}
 			}
 		}
-		hidden_effect = { POL = { country_event = NSB_polish_fascist_events.102 } }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_polish_fascist_events.102
+			}
+		}
 	}
 }
 
@@ -3277,10 +3887,8 @@ country_event = {
 	title = NSB_polish_fascist_events.101.t
 	desc = NSB_polish_fascist_events.101.desc
 	picture = GFX_report_event_nazis_in_danzig
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.101.a
 		ai_chance = {
@@ -3298,10 +3906,8 @@ country_event = {
 	title = NSB_polish_fascist_events.102.t
 	desc = NSB_polish_fascist_events.102.desc
 	picture = GFX_report_event_poland_rejects
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.102.a
 		ai_chance = {
@@ -3315,16 +3921,15 @@ country_event = {
 		complete_national_focus = POL_reassert_silesian_claims
 	}
 }
+
 #German event; Poland wants to invade Lithuania
 country_event = {
-	id = NSB_polish_fascist_events.2		
+	id = NSB_polish_fascist_events.2
 	title = NSB_polish_fascist_events.2.t
 	desc = NSB_polish_fascist_events.2.desc
 	picture = GFX_report_event_lithuanian_ultimatum
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.2.a
 		trigger = {
@@ -3334,13 +3939,15 @@ country_event = {
 		}
 		ai_chance = {
 			base = 50
-			modifier = { #Lithuania is in a faction
+			modifier = {
+				#Lithuania is in a faction
 				factor = 0.75
 				LIT = {
 					is_in_faction = yes
 				}
 			}
-			modifier = { #Lithuania is in a big faction
+			modifier = {
+				#Lithuania is in a big faction
 				factor = 0.5
 				LIT = {
 					is_in_faction = yes
@@ -3351,16 +3958,19 @@ country_event = {
 				}
 			}
 		}
-		LIT = { country_event = NSB_polish_fascist_events.201 }
+		LIT = {
+			country_event = NSB_polish_fascist_events.201
+		}
 		custom_effect_tooltip = if_they_accept_tt
 		effect_tooltip = {
 			POL_divide_lithuania_effect = yes
 		}
 	}
-	
-	option = { #I have already annexed Lithuania
+	option = {
+		#I have already annexed Lithuania
 		name = NSB_polish_fascist_events.2.b
-		trigger = { #If Lithuania does not exist, just divide the occupation
+		trigger = {
+			#If Lithuania does not exist, just divide the occupation
 			LIT = {
 				exists = no
 			}
@@ -3368,24 +3978,32 @@ country_event = {
 		ai_chance = {
 			base = 50
 		}
-		hidden_effect = { POL = { country_event = NSB_polish_fascist_events.203 } }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_polish_fascist_events.203
+			}
+		}
 		effect_tooltip = {
 			POL_divide_lithuania_effect = yes
 		}
 	}
-
-	option = { #No
+	option = {
+		#No
 		name = NSB_polish_fascist_events.2.c
 		ai_chance = {
 			base = 10
 			modifier = {
-				factor = 0 #If the player is doing this, the AI should always say yes.
+				factor = 0				#If the player is doing this, the AI should always say yes.
 				POL = {
 					is_ai = no
 				}
 			}
 		}
-		hidden_effect = { POL = { country_event = NSB_polish_fascist_events.202 } }
+		hidden_effect = {
+			POL = {
+				country_event = NSB_polish_fascist_events.202
+			}
+		}
 	}
 }
 
@@ -3395,29 +4013,44 @@ country_event = {
 	title = NSB_polish_fascist_events.201.t
 	desc = NSB_polish_fascist_events.201.desc
 	picture = GFX_report_event_lithuanian_ultimatum
-
 	fire_only_once = yes
 	is_triggered_only = yes
-
-	option = { #Sure!
+	option = {
+		#Sure!
 		name = NSB_polish_fascist_events.201.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				POL = { has_army_size = { size < 40 } }
+				POL = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				add = -25
-				GER = { has_army_size = { size < 40 } }
+				GER = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				GER = { has_army_size = { size > 39 } }
+				GER = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				factor = 0.1
@@ -3425,54 +4058,80 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			POL = { country_event = NSB_polish_fascist_events.203 }
-			GER = { country_event = NSB_polish_fascist_events.203 }
+			POL = {
+				country_event = NSB_polish_fascist_events.203
+			}
+			GER = {
+				country_event = NSB_polish_fascist_events.203
+			}
 		}
 		POL_divide_lithuania_effect = yes
 		custom_effect_tooltip = GAME_OVER_TT
 	}
-
-	option = { #No thank you
+	option = {
+		#No thank you
 		name = NSB_polish_fascist_events.201.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				POL = { has_army_size = { size < 30 } }
+				POL = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
-				GER = { has_army_size = { size > 39 } }
+				GER = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				GER = { has_army_size = { size < 30 } }
+				GER = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = LIT
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = LIT
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 		}
 		hidden_effect = {
 			GER = {
-				add_opinion_modifier = { target = PREV modifier = POL_annexation_refused }
+				add_opinion_modifier = {
+					target = PREV
+					modifier = POL_annexation_refused
+				}
 				country_event = NSB_polish_fascist_events.204
 			}
 			POL = {
-				add_opinion_modifier = { target = PREV modifier = POL_annexation_refused }
+				add_opinion_modifier = {
+					target = PREV
+					modifier = POL_annexation_refused
+				}
 				country_event = NSB_polish_fascist_events.204
 			}
 		}
@@ -3486,10 +4145,8 @@ country_event = {
 	title = NSB_polish_fascist_events.202.t
 	desc = NSB_polish_fascist_events.202.desc
 	picture = GFX_report_event_generic_conference
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.202.a
 		ai_chance = {
@@ -3504,10 +4161,8 @@ country_event = {
 	title = NSB_polish_fascist_events.203.t
 	desc = NSB_polish_fascist_events.203.desc
 	picture = GFX_report_event_lithuanian_ultimatum
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.203.a
 		ai_chance = {
@@ -3525,10 +4180,8 @@ country_event = {
 	title = NSB_polish_fascist_events.204.t
 	desc = NSB_polish_fascist_events.204.desc
 	picture = GFX_report_event_military_planning
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.204.a
 		ai_chance = {
@@ -3546,11 +4199,10 @@ country_event = {
 	title = NSB_polish_fascist_events.3.t
 	desc = NSB_polish_fascist_events.3.desc
 	picture = GFX_report_event_danzig_joins_nazis
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
-	option = { #Yes 
+	option = {
+		#Yes 
 		name = NSB_polish_fascist_events.3.a
 		ai_chance = {
 			base = 10
@@ -3560,17 +4212,27 @@ country_event = {
 			autonomy_state = autonomy_satellite
 		}
 		hidden_effect = {
-			POL = { country_event = { id = NSB_polish_fascist_events.301 hours = 3 }  }
+			POL = {
+				country_event = {
+					id = NSB_polish_fascist_events.301
+					hours = 3
+				}
+			}
 		}
 	}
-	
-	option = { #No, Poland is Ours  
+	option = {
+		#No, Poland is Ours  
 		name = NSB_polish_fascist_events.3.b
 		ai_chance = {
-			base = 0 #The AI should basically always say yes
+			base = 0			#The AI should basically always say yes
 		}
 		hidden_effect = {
-			POL = { country_event = { id = NSB_polish_fascist_events.302  hours = 3 } }
+			POL = {
+				country_event = {
+					id = NSB_polish_fascist_events.302
+					hours = 3
+				}
+			}
 		}
 	}
 }
@@ -3581,10 +4243,8 @@ country_event = {
 	title = NSB_polish_fascist_events.301.t
 	desc = NSB_polish_fascist_events.301.desc
 	picture = GFX_report_event_generic_communist_congress
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = NSB_polish_fascist_events.301.a
 		ai_chance = {
@@ -3607,20 +4267,16 @@ country_event = {
 	title = NSB_polish_fascist_events.302.t
 	desc = NSB_polish_fascist_events.302.desc
 	picture = GFX_report_event_nazis_in_danzig
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
-		name = NSB_polish_fascist_events.302.a #Accept it, nothing happens
+		name = NSB_polish_fascist_events.302.a		#Accept it, nothing happens
 		ai_chance = {
 			base = 40
 		}
-		
 	}
-	
 	option = {
-		name = NSB_polish_fascist_events.302.b #Screw Germany, I'm going to reach out to the resistance
+		name = NSB_polish_fascist_events.302.b		#Screw Germany, I'm going to reach out to the resistance
 		ai_chance = {
 			base = 20
 		}
@@ -3650,56 +4306,79 @@ country_event = {
 	desc = {
 		text = NSB_polish_fascist_events.4.desc.first
 		trigger = {
-			NOT = { has_global_flag = POL_rejected_baltics }
-			NOT = { has_global_flag = POL_rejected_belarus_ukraine }
-			NOT = { has_global_flag = POL_rejected_black_sea }
+			NOT = {
+				has_global_flag = POL_rejected_baltics
+			}
+			NOT = {
+				has_global_flag = POL_rejected_belarus_ukraine
+			}
+			NOT = {
+				has_global_flag = POL_rejected_black_sea
+			}
 		}
 	}
 	picture = GFX_report_event_generic_conference
-
 	is_triggered_only = yes
-	
 	option = {
-		name = NSB_polish_fascist_events.4.a #We want to move up into the Baltic
+		name = NSB_polish_fascist_events.4.a		#We want to move up into the Baltic
 		ai_chance = {
 			base = 40
 		}
 		trigger = {
-			NOT = { has_global_flag = POL_rejected_baltics }
+			NOT = {
+				has_global_flag = POL_rejected_baltics
+			}
 		}
 		set_country_flag = asking_for_baltics_flag
-		overlord = { country_event = { id = NSB_polish_fascist_events.401 hours = 5 }}
+		overlord = {
+			country_event = {
+				id = NSB_polish_fascist_events.401
+				hours = 5
+			}
+		}
 		custom_effect_tooltip = if_they_accept_tt
 		custom_effect_tooltip = form_country_estonia_coring_states_tt
 		custom_effect_tooltip = form_country_latvia_coring_states_tt
 		custom_effect_tooltip = form_country_lithuania_coring_states_tt
 	}
-	
 	option = {
-		name = NSB_polish_fascist_events.4.b #We want to move east into Belarus and Ukraine
+		name = NSB_polish_fascist_events.4.b		#We want to move east into Belarus and Ukraine
 		ai_chance = {
 			base = 60
 		}
 		trigger = {
-			NOT = { has_global_flag = POL_rejected_belarus_ukraine }
+			NOT = {
+				has_global_flag = POL_rejected_belarus_ukraine
+			}
 		}
 		set_country_flag = asking_for_belarus_and_ukraine_flag
-		overlord = { country_event = { id = NSB_polish_fascist_events.401 hours = 5 }}
+		overlord = {
+			country_event = {
+				id = NSB_polish_fascist_events.401
+				hours = 5
+			}
+		}
 		custom_effect_tooltip = if_they_accept_tt
 		custom_effect_tooltip = form_country_ukraine_coring_states_tt
 		custom_effect_tooltip = form_country_belarus_coring_states_tt
 	}
-	
 	option = {
-		name = NSB_polish_fascist_events.4.c #We want to move south into the Black Sea
+		name = NSB_polish_fascist_events.4.c		#We want to move south into the Black Sea
 		ai_chance = {
 			base = 20
 		}
 		trigger = {
-			NOT = { has_global_flag = POL_rejected_black_sea }
+			NOT = {
+				has_global_flag = POL_rejected_black_sea
+			}
 		}
 		set_country_flag = asking_for_black_sea_flag
-		overlord = { country_event = { id = NSB_polish_fascist_events.401 hours = 5 } }
+		overlord = {
+			country_event = {
+				id = NSB_polish_fascist_events.401
+				hours = 5
+			}
+		}
 		custom_effect_tooltip = if_they_accept_tt
 		custom_effect_tooltip = form_country_ukraine_coring_states_tt
 		custom_effect_tooltip = core_black_sea_tt
@@ -3713,54 +4392,73 @@ country_event = {
 	desc = {
 		text = NSB_polish_fascist_events.401.desc.baltics
 		trigger = {
-			FROM = { has_country_flag = asking_for_baltics_flag } 
+			FROM = {
+				has_country_flag = asking_for_baltics_flag
+			}
 		}
 	}
-	desc = { 
+	desc = {
 		text = NSB_polish_fascist_events.401.desc.ukraine
-		trigger ={
-			FROM = { has_country_flag = asking_for_belarus_and_ukraine_flag }
+		trigger = {
+			FROM = {
+				has_country_flag = asking_for_belarus_and_ukraine_flag
+			}
 		}
 	}
 	desc = {
 		text = NSB_polish_fascist_events.401.desc.blacksea
 		trigger = {
-			FROM = { has_country_flag = asking_for_black_sea_flag }
+			FROM = {
+				has_country_flag = asking_for_black_sea_flag
+			}
 		}
 	}
 	picture = GFX_report_event_generic_conference
-
 	is_triggered_only = yes
-	
 	option = {
-		name = NSB_polish_fascist_events.401.a #Germany agrees to post-war borders
+		name = NSB_polish_fascist_events.401.a		#Germany agrees to post-war borders
 		ai_chance = {
 			base = 40
 		}
 		FROM = {
-			country_event = { id = NSB_polish_fascist_events.402 hours = 8 }
+			country_event = {
+				id = NSB_polish_fascist_events.402
+				hours = 8
+			}
 		}
 	}
-	
 	option = {
-		name = NSB_polish_fascist_events.401.b #We disagree
+		name = NSB_polish_fascist_events.401.b		#We disagree
 		ai_chance = {
 			base = 60
 		}
-		trigger = { #Can't say no if it's the last option
+		trigger = {
+			#Can't say no if it's the last option
 			OR = {
 				AND = {
-					NOT = { has_global_flag = POL_rejected_baltics }
-					NOT = { has_global_flag = POL_rejected_belarus_ukraine }
+					NOT = {
+						has_global_flag = POL_rejected_baltics
+					}
+					NOT = {
+						has_global_flag = POL_rejected_belarus_ukraine
+					}
 				}
 				AND = {
-					NOT = { has_global_flag = POL_rejected_baltics }
-					NOT = { has_global_flag = POL_rejected_black_sea }
+					NOT = {
+						has_global_flag = POL_rejected_baltics
+					}
+					NOT = {
+						has_global_flag = POL_rejected_black_sea
+					}
 				}
 				AND = {
-					NOT = { has_global_flag = POL_rejected_belarus_ukraine }
-					NOT = { has_global_flag = POL_rejected_black_sea }
-				} 
+					NOT = {
+						has_global_flag = POL_rejected_belarus_ukraine
+					}
+					NOT = {
+						has_global_flag = POL_rejected_black_sea
+					}
+				}
 			}
 		}
 		hidden_effect = {
@@ -3792,21 +4490,23 @@ country_event = {
 				clr_country_flag = asking_for_baltics_flag
 				clr_country_flag = asking_for_belarus_and_ukraine_flag
 				clr_country_flag = asking_for_black_sea_flag
-				country_event = { id = NSB_polish_fascist_events.4 hours = 3}
+				country_event = {
+					id = NSB_polish_fascist_events.4
+					hours = 3
+				}
 			}
 		}
 	}
 }
+
 country_event = {
 	id = NSB_polish_fascist_events.402
 	title = NSB_poland_communist_events.401.t
 	desc = NSB_polish_fascist_events.402.desc
 	picture = GFX_report_event_generic_peaceful_annexation
-
 	is_triggered_only = yes
-	
 	option = {
-		name = NSB_polish_fascist_events.402.a #Germany agrees to post-war borders
+		name = NSB_polish_fascist_events.402.a		#Germany agrees to post-war borders
 		ai_chance = {
 			base = 40
 		}
@@ -3819,24 +4519,56 @@ country_event = {
 			custom_effect_tooltip = form_country_lithuania_coring_states_tt
 			hidden_effect = {
 				#Estonia
-				13 = { add_core_of = ROOT }
-				191 = { add_core_of = ROOT }
-				811 = { add_core_of = ROOT }
-				812 = { add_core_of = ROOT }
-				813 = { add_core_of = ROOT }
+				13 = {
+					add_core_of = ROOT
+				}
+				191 = {
+					add_core_of = ROOT
+				}
+				811 = {
+					add_core_of = ROOT
+				}
+				812 = {
+					add_core_of = ROOT
+				}
+				813 = {
+					add_core_of = ROOT
+				}
 				# Latvia
-				12 = { add_core_of = ROOT }
-				190 = { add_core_of = ROOT }
-				808 = { add_core_of = ROOT }
-				809 = { add_core_of = ROOT }
-				810 = { add_core_of = ROOT }
+				12 = {
+					add_core_of = ROOT
+				}
+				190 = {
+					add_core_of = ROOT
+				}
+				808 = {
+					add_core_of = ROOT
+				}
+				809 = {
+					add_core_of = ROOT
+				}
+				810 = {
+					add_core_of = ROOT
+				}
 				# Lithuania
-				11 = { add_core_of = ROOT }
-				189 = { add_core_of = ROOT }
-				188 = { add_core_of = ROOT }
-				784 = { add_core_of = ROOT }
-				814 = { add_core_of = ROOT }
-				815 = { add_core_of = ROOT }
+				11 = {
+					add_core_of = ROOT
+				}
+				189 = {
+					add_core_of = ROOT
+				}
+				188 = {
+					add_core_of = ROOT
+				}
+				784 = {
+					add_core_of = ROOT
+				}
+				814 = {
+					add_core_of = ROOT
+				}
+				815 = {
+					add_core_of = ROOT
+				}
 			}
 		}
 		else_if = {
@@ -3870,35 +4602,59 @@ country_event = {
 					}
 					add_core_of = POL
 				}
-				137 = { add_core_of = POL }
-				218 = { add_core_of = POL }
-				234 = { add_core_of = POL }
-				233 = { add_core_of = POL }
-				231 = { add_core_of = POL }
-				238 = { add_core_of = POL }
-				235 = { add_core_of = POL }
-				232 = { add_core_of = POL }
-				230 = { add_core_of = POL }
-				229 = { add_core_of = POL }
-				821 = { add_core_of = POL }
-				826 = { add_core_of = POL }
-				827 = { add_core_of = POL }
-				828 = { add_core_of = POL }
-
+				137 = {
+					add_core_of = POL
+				}
+				218 = {
+					add_core_of = POL
+				}
+				234 = {
+					add_core_of = POL
+				}
+				233 = {
+					add_core_of = POL
+				}
+				231 = {
+					add_core_of = POL
+				}
+				238 = {
+					add_core_of = POL
+				}
+				235 = {
+					add_core_of = POL
+				}
+				232 = {
+					add_core_of = POL
+				}
+				230 = {
+					add_core_of = POL
+				}
+				229 = {
+					add_core_of = POL
+				}
+				821 = {
+					add_core_of = POL
+				}
+				826 = {
+					add_core_of = POL
+				}
+				827 = {
+					add_core_of = POL
+				}
+				828 = {
+					add_core_of = POL
+				}
 			}
 		}
 	}
 }
-
 
 country_event = {
 	id = NSB_polish_fascist_events.5
 	title = NSB_polish_fascist_events.5.t
 	desc = NSB_polish_fascist_events.5.desc
 	picture = GFX_report_event_generic_rally
-	
 	is_triggered_only = yes
-
 	immediate = {
 		hidden_effect = {
 			save_event_target_as = alliance_applicant
@@ -3907,7 +4663,6 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = NSB_polish_fascist_events.5.a
 		ai_chance = {
@@ -3958,7 +4713,9 @@ country_event = {
 				has_focus_tree = netherlands_focus
 			}
 			if = {
-				limit = { has_completed_focus = HOL_maintain_trade_neutrality }
+				limit = {
+					has_completed_focus = HOL_maintain_trade_neutrality
+				}
 				uncomplete_national_focus = {
 					focus = HOL_maintain_trade_neutrality
 					uncomplete_children = yes
@@ -3966,7 +4723,9 @@ country_event = {
 				unlock_national_focus = HOL_cave_to_the_germans
 			}
 			if = {
-				limit = { has_completed_focus = HOL_cave_to_the_british }
+				limit = {
+					has_completed_focus = HOL_cave_to_the_british
+				}
 				uncomplete_national_focus = {
 					focus = HOL_cave_to_the_british
 					uncomplete_children = yes
@@ -3976,11 +4735,16 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = alliance_applicant@ROOT
-			FROM = { set_country_flag = alliance_inviter@ROOT }
+			FROM = {
+				set_country_flag = alliance_inviter@ROOT
+			}
 			FROM = {
 				country_event = generic.6
 			}
-			news_event = { id = news.289 hours = 12 }
+			news_event = {
+				id = news.289
+				hours = 12
+			}
 		}
 		add_ai_strategy = {
 			type = alliance
@@ -3992,7 +4756,6 @@ country_event = {
 		name = NSB_polish_fascist_events.5.b
 		ai_chance = {
 			factor = 50
-			
 			modifier = {
 				factor = 2
 				fascism < 0.2
@@ -4008,7 +4771,6 @@ country_event = {
 					value > 65
 				}
 			}
-			
 			modifier = {
 				factor = 0.5
 				has_opinion = {
@@ -4016,7 +4778,6 @@ country_event = {
 					value > 35
 				}
 			}
-			
 			modifier = {
 				factor = 0.5
 				has_opinion = {
@@ -4024,23 +4785,20 @@ country_event = {
 					value > 5
 				}
 			}
-			
 			modifier = {
-				factor = 2.0
+				factor = 2
 				has_opinion = {
 					target = FROM
 					value < 35
 				}
 			}
-			
 			modifier = {
-				factor = 2.0
+				factor = 2
 				has_opinion = {
 					target = FROM
 					value < 65
 				}
 			}
-			
 			modifier = {
 				factor = 0.1
 				has_war = yes
@@ -4048,14 +4806,12 @@ country_event = {
 					has_war = no
 				}
 			}
-			
 			modifier = {
 				factor = 0.5
 				FROM = {
 					is_major = yes
 				}
 			}
-
 			modifier = {
 				factor = 10
 				FROM = {
@@ -4070,7 +4826,9 @@ country_event = {
 			}
 		}
 		FROM = {
-			country_event = { id = poland.1602 }
+			country_event = {
+				id = poland.1602
+			}
 		}
 	}
 }
@@ -4081,11 +4839,8 @@ country_event = {
 	title = NSB_polish_fascist_events.6.t
 	desc = NSB_polish_fascist_events.6.desc
 	picture = GFX_report_event_sanation_revolt
-	
 	is_triggered_only = yes
-
 	fire_only_once = no
-
 	option = {
 		name = NSB_polish_fascist_events.6.a
 		ai_chance = {
@@ -4098,17 +4853,15 @@ country_event = {
 		}
 	}
 }
+
 #National-Democrats winning the "election"
 country_event = {
 	id = NSB_polish_fascist_events.7
 	title = NSB_polish_fascist_events.7.t
 	desc = NSB_polish_fascist_events.7.desc
 	picture = GFX_report_event_election_vote
-	
 	is_triggered_only = yes
-
 	fire_only_once = no
-
 	option = {
 		name = NSB_polish_fascist_events.7.a
 		ai_chance = {
@@ -4119,35 +4872,40 @@ country_event = {
 			elections_allowed = yes
 			election_frequency = 60
 			long_name = POL_natdem_party_long
-			name = POL_natdem_party 
+			name = POL_natdem_party
 		}
 		promote_character = POL_roman_dmowski
 	}
 }
 
 add_namespace = POL_habsburg_events
-
 #Hungarian event: Poland demands the return of Otto von Habsburg
 country_event = {
 	id = POL_habsburg_events.1
 	title = POL_habsburg_events.1.t
 	desc = POL_habsburg_events.1.desc
 	picture = GFX_report_event_military_planning
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = POL_habsburg_events.1.a
 		ai_chance = {
 			base = 30
 			modifier = {
 				add = -25
-				POL = { has_army_size = { size < 40 } }
+				POL = {
+					has_army_size = {
+						size < 40
+					}
+				}
 			}
 			modifier = {
 				add = 100
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 			}
 			modifier = {
 				add = 20
@@ -4158,7 +4916,7 @@ country_event = {
 				is_in_faction = yes
 			}
 			modifier = {
-				factor = 0.1 #They don't border me, I'm not scared
+				factor = 0.1				#They don't border me, I'm not scared
 				NOT = {
 					any_controlled_state = {
 						any_neighbor_state = {
@@ -4168,7 +4926,11 @@ country_event = {
 				}
 			}
 		}
-		hidden_effect = { POL = { country_event = POL_habsburg_events.101 } }
+		hidden_effect = {
+			POL = {
+				country_event = POL_habsburg_events.101
+			}
+		}
 		promote_character = HUN_otto_von_habsburg
 		add_ruling_to_neu = yes
 		set_politics = {
@@ -4177,7 +4939,8 @@ country_event = {
 			name = HUN_legitimists_party
 			long_name = HUN_legitimists_party_long
 		}
-		if = { #Switch to the Habsburg branch
+		if = {
+			#Switch to the Habsburg branch
 			limit = {
 				has_focus_tree = hungarian_focus
 			}
@@ -4210,13 +4973,17 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_completed_focus = HUN_history_of_royals }
+					NOT = {
+						has_completed_focus = HUN_history_of_royals
+					}
 				}
 				complete_national_focus = HUN_history_of_royals
 			}
 			if = {
 				limit = {
-					NOT = { has_completed_focus = HUN_history_of_royals }
+					NOT = {
+						has_completed_focus = HUN_history_of_royals
+					}
 				}
 				complete_national_focus = HUN_history_of_royals
 			}
@@ -4227,39 +4994,48 @@ country_event = {
 			}
 		}
 	}
-
 	option = {
 		name = POL_habsburg_events.1.b
 		ai_chance = {
 			base = 10
 			modifier = {
-				POL = { has_army_size = { size > 39 } }
+				POL = {
+					has_army_size = {
+						size > 39
+					}
+				}
 				factor = 0.5
 			}
 			modifier = {
 				add = 20
-				POL = { has_army_size = { size < 30 } }
+				POL = {
+					has_army_size = {
+						size < 30
+					}
+				}
 			}
 			modifier = {
 				factor = 2
 				is_in_faction = yes
-				NOT = { is_in_faction_with = POL }
+				NOT = {
+					is_in_faction_with = POL
+				}
 			}
 			modifier = {
 				any_other_country = {
 					has_guaranteed = HUN
 				}
-				factor = 5 #i've got friends
+				factor = 5				#i've got friends
 			}
 			modifier = {
 				any_other_country = {
 					is_major = yes
 					has_guaranteed = HUN
 				}
-				factor = 5 #i've got big friends
+				factor = 5				#i've got big friends
 			}
 			modifier = {
-				factor = 0.1 #They don't border me, I'm not scared
+				factor = 0.1				#They don't border me, I'm not scared
 				any_controlled_state = {
 					any_neighbor_state = {
 						is_controlled_by = POL
@@ -4267,7 +5043,11 @@ country_event = {
 				}
 			}
 		}
-		hidden_effect = { POL = { country_event = POL_habsburg_events.102 } }
+		hidden_effect = {
+			POL = {
+				country_event = POL_habsburg_events.102
+			}
+		}
 	}
 }
 
@@ -4277,10 +5057,8 @@ country_event = {
 	title = POL_habsburg_events.101.t
 	desc = POL_habsburg_events.101.desc
 	picture = GFX_report_event_generic_parliament
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = POL_habsburg_events.101.a
 		ai_chance = {
@@ -4296,10 +5074,8 @@ country_event = {
 	title = POL_habsburg_events.102.t
 	desc = POL_habsburg_events.102.desc
 	picture = GFX_report_event_polish_tanks_01
-
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	option = {
 		name = POL_habsburg_events.102.a
 		ai_chance = {
@@ -4318,11 +5094,8 @@ country_event = {
 	title = POL_habsburg_events.2.t
 	desc = POL_habsburg_events.2.desc
 	picture = GFX_report_event_royal_parade
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	immediate = {
 		hidden_effect = {
 			save_event_target_as = alliance_applicant
@@ -4331,15 +5104,18 @@ country_event = {
 			}
 		}
 	}
-
-	option = { #Hungary agrees
+	option = {
+		#Hungary agrees
 		name = POL_habsburg_events.2.a
 		ai_chance = {
 			base = 10
 		}
 		FROM = {
 			add_to_faction = PREV
-			country_event = { id = generic.6 hours = 6 }
+			country_event = {
+				id = generic.6
+				hours = 6
+			}
 			add_ai_strategy = {
 				type = alliance
 				id = FROM
@@ -4353,35 +5129,41 @@ country_event = {
 		}
 		hidden_effect = {
 			set_country_flag = alliance_applicant@ROOT
-			FROM = { set_country_flag = alliance_inviter@ROOT }
-			news_event = { id = news.289 hours = 12 }
+			FROM = {
+				set_country_flag = alliance_inviter@ROOT
+			}
+			news_event = {
+				id = news.289
+				hours = 12
+			}
 		}
 	}
-
-	option = { #Hungary refuses
+	option = {
+		#Hungary refuses
 		name = POL_habsburg_events.2.b
 		ai_chance = {
-			base = 0 #If Hungary gets this event, they should never say no as an AI.
+			base = 0			#If Hungary gets this event, they should never say no as an AI.
 		}
 		hidden_effect = {
 			POL = {
-				country_event = { id = POL_habsburg_events.201 }
+				country_event = {
+					id = POL_habsburg_events.201
+				}
 			}
 		}
 	}
 }
+
 #Hungary says no, change to allied focus
 country_event = {
 	id = POL_habsburg_events.201
 	title = POL_habsburg_events.201.t
 	desc = POL_habsburg_events.201.desc
 	picture = GFX_report_event_royal_visit
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
-	option = { #Switch branch
+	option = {
+		#Switch branch
 		name = POL_habsburg_events.201.a
 		ai_chance = {
 			base = 10

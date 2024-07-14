@@ -1,0 +1,21 @@
+﻿l_english:
+ # Positive modifiers
+ war_support_factor_positive_tt: " $MODIFIER_WAR_SUPPORT_FACTOR$ $RIGHT|+=%1$"
+ stability_factor_positive_tt: " $MODIFIER_STABILITY_FACTOR$ $RIGHT|+=%1$"
+ army_speed_factor_positive_tt: " $MODIFIER_ARMY_SPEED_FACTOR$ $RIGHT|+=%1$"
+ org_factor_positive_tt: " $MODIFIER_ARMY_ORG_FACTOR$ $RIGHT|+=%1$"
+ army_attack_factor_positive_tt: " $MODIFIER_OFFENCE$ $RIGHT|+=%1$"
+ army_defense_factor_positive_tt: " $MODIFIER_DEFENCE$ $RIGHT|+=%1$"
+ org_loss_when_moving_positive_tt: " $MODIFIER_ORG_LOSS_WHEN_MOVING$ $RIGHT|-=%1$"
+ training_time_factor_positive_tt: " $MODIFIER_TRAINING_TIME_FACTOR$ $RIGHT|-=%1$"
+ planning_speed_positive_tt: " $MODIFIER_PLANNING_SPEED$ $RIGHT|+=%1$"
+ # Negative modifiers
+ war_support_factor_negative_tt: " $MODIFIER_WAR_SUPPORT_FACTOR$ $RIGHT|-=%1$"
+ stability_factor_negative_tt: " $MODIFIER_STABILITY_FACTOR$ $RIGHT|R=%1$"
+ army_speed_factor_negative_tt: " $MODIFIER_ARMY_SPEED_FACTOR$ $RIGHT|-=%1$"
+ org_factor_negative_tt: " $MODIFIER_ARMY_ORG_FACTOR$ $RIGHT|+=%1$"
+ army_attack_factor_negative_tt: " $MODIFIER_OFFENCE$ $RIGHT|-=%1$"
+ army_defense_factor_negative_tt: " $MODIFIER_DEFENCE$ $RIGHT|-=%1$"
+ org_loss_when_moving_negative_tt: " $MODIFIER_ORG_LOSS_WHEN_MOVING$ $RIGHT|+=%1$"
+ training_time_factor_negative_tt: " $MODIFIER_TRAINING_TIME_FACTOR$ $RIGHT|+=%1$"
+ planning_speed_negative_tt: " $MODIFIER_PLANNING_SPEED$ $RIGHT|-=%1$"

@@ -18,13 +18,15 @@ political_actions = {
 				exists = yes
 				is_subject = no
 			}
-
 			hidden_trigger = {
-				NOT = { has_country_flag = has_called_sweden_into_war }
+				NOT = {
+					has_country_flag = has_called_sweden_into_war
+				}
 			}
-
 			hidden_trigger = {
-				NOT = { has_country_flag = HUN_tried_to_call_swe_to_war_once }
+				NOT = {
+					has_country_flag = HUN_tried_to_call_swe_to_war_once
+				}
 			}
 		}
 		cost = 0
@@ -36,9 +38,11 @@ political_actions = {
 				set_country_flag = has_called_sweden_into_war
 			}
 			SWE = {
-				country_event = { id = DOD_hungary.20 hours = 1 }
+				country_event = {
+					id = DOD_hungary.20
+					hours = 1
+				}
 			}
-
 			hidden_effect = {
 				set_country_flag = HUN_tried_to_call_swe_to_war_once
 			}
@@ -52,8 +56,9 @@ political_actions = {
 			original_tag = SWE
 		}
 		visible = {
-			HUN = { has_completed_focus = HUN_elect_a_democratic_king }
-
+			HUN = {
+				has_completed_focus = HUN_elect_a_democratic_king
+			}
 			NOT = {
 				has_war_with = HUN
 			}
@@ -64,9 +69,10 @@ political_actions = {
 				not = {
 					has_government = communism
 				}
-
 				hidden_trigger = {
-					NOT = { has_country_flag = has_called_hungary_into_war }
+					NOT = {
+						has_country_flag = has_called_hungary_into_war
+					}
 				}
 			}
 		}
@@ -86,61 +92,46 @@ political_actions = {
 }
 
 economy_decisions = {
-
-	
 }
-
-
-
 
 operations = {
-	
-	
 }
 
-
-
 war_measures = {
-	
-	
 }
 
 foreign_politics = {
-
 }
 
 economy_decisions = {
-	
 }
 
 foreign_support = {
-
-
 }
 
 HUN_infiltrate_czechoslovakia_cat = {
 	# We will have a system where we can annex czechoslovakia by doing multiple decisions that take pp, experience, command power, and time
 	HUN_infiltrate_administration = {
 		visible = {
-				NOT = { has_country_flag = HUN_administration_infiltrated }
+			NOT = {
+				has_country_flag = HUN_administration_infiltrated
+			}
 		}
 		available = {
 		}
-
 		cost = 100
-
 		complete_effect = {
 			set_country_flag = HUN_administration_infiltrated
 		}
 	}
-	
 	HUN_infiltrate_army = {
 		visible = {
-				NOT = { has_country_flag = HUN_army_infiltrated }
+			NOT = {
+				has_country_flag = HUN_army_infiltrated
+			}
 		}
 		available = {
 		}
-
 		ai_hint_pp_cost = 50
 		custom_cost_trigger = {
 			command_power > 49
@@ -148,29 +139,25 @@ HUN_infiltrate_czechoslovakia_cat = {
 			has_army_experience > 14
 		}
 		custom_cost_text = decision_cost_CP_50_pp_50_ArmXP_15
-
 		complete_effect = {
 			set_country_flag = HUN_army_infiltrated
 		}
 	}
-
 	HUN_infiltrate_populus = {
 		visible = {
-				NOT = { has_country_flag = HUN_populus_infiltrated }
+			NOT = {
+				has_country_flag = HUN_populus_infiltrated
+			}
 		}
 		available = {
 		}
-
 		cost = 125
-
 		complete_effect = {
 			set_country_flag = HUN_populus_infiltrated
 		}
 	}
-
 	HUN_claim_czechoslovakian_throne = {
 		visible = {
-				
 		}
 		available = {
 			AND = {
@@ -179,12 +166,17 @@ HUN_infiltrate_czechoslovakia_cat = {
 				has_country_flag = HUN_populus_infiltrated
 			}
 		}
-
 		cost = 200
-
 		complete_effect = {
-			CZE = { country_event = { id = DOD_hungary.181 days = 1 } }
-			HUN = { clr_country_flag = HUN_infiltrating_czechoslovakia }
+			CZE = {
+				country_event = {
+					id = DOD_hungary.181
+					days = 1
+				}
+			}
+			HUN = {
+				clr_country_flag = HUN_infiltrating_czechoslovakia
+			}
 		}
-	}	
+	}
 }

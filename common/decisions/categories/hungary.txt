@@ -11,20 +11,20 @@ HUN_infiltrate_czechoslovakia_cat = {
 		}
 	}
 	available = {
-					has_war = no
-					CZE = {
-						OR = {
-						owns_state = 664
-						owns_state = 73
-						owns_state = 71
-						owns_state = 70
-						owns_state = 75
-						owns_state = 72
-						owns_state = 74
-						owns_state = 69
-						owns_state = 9
-					}
-				}
+		has_war = no
+		CZE = {
+			OR = {
+				owns_state = 664
+				owns_state = 73
+				owns_state = 71
+				owns_state = 70
+				owns_state = 75
+				owns_state = 72
+				owns_state = 74
+				owns_state = 69
+				owns_state = 9
+			}
+		}
 	}
 }
 
