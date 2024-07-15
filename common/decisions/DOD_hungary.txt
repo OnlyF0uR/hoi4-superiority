@@ -180,3 +180,213 @@ HUN_infiltrate_czechoslovakia_cat = {
 		}
 	}
 }
+
+HUN_brothers_conflict_cat = {
+	HUN_offensive_military_operation = {
+		allowed = {
+			tag = HUN
+		}
+		visible = {
+			has_global_flag = second_brothers_conflict
+		}
+		activation = {
+			has_global_flag = second_brothers_conflict
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		icon = POL_looming_peasants_strike
+		is_good = yes
+		cancel_trigger = {
+			GER = {
+				OR = {
+					exists = no
+					is_in_faction_with = HUN
+				}
+			}
+		}
+		cancel_effect = {
+			clr_global_flag = second_brothers_conflict
+		}
+		war_with_on_timeout = GER
+		days_mission_timeout = 100
+		timeout_effect = {
+			clr_global_flag = second_brothers_conflict
+			set_global_flag = second_brothers_war
+			declare_war_on = {
+				target = GER
+				type = take_claimed_state
+			}
+		}
+	}
+	HUN_southern_domination = {
+		allowed = {
+			tag = HUN
+		}
+		visible = {
+			has_global_flag = second_brothers_war
+		}
+		activation = {
+			has_global_flag = second_brothers_war
+		}
+		# Win conditions
+		available = {
+			# if we control states
+			OR = {
+				AND = {
+					52 = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+					53 = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+					54 = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+					50 = {
+						is_controlled_by_ROOT_or_ally = yes
+					}
+				}
+				GER = {
+					surrender_progress > 0.5
+				}
+			}
+		}
+		icon = POL_looming_peasants_strike
+		is_good = no
+		cancel_trigger = {
+			surrender_progress > 0.5
+		}
+		cancel_effect = {
+			hidden_effect = {
+				white_peace = GER
+			}
+			# Germans win the war
+			clr_global_flag = second_brothers_war
+			if = {
+				limit = {
+					74 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 74
+				}
+			}
+			if = {
+				limit = {
+					75 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 75
+				}
+			}
+			if = {
+				limit = {
+					69 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 69
+				}
+			}
+			if = {
+				limit = {
+					9 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 9
+				}
+			}
+		}
+		days_mission_timeout = 60
+		selectable_mission = no
+		timeout_effect = {
+			hidden_effect = {
+				white_peace = GER
+			}
+			# Germans win the war
+			clr_global_flag = second_brothers_war
+			if = {
+				limit = {
+					74 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 74
+				}
+				74 = {
+					add_core_of = GER
+				}
+			}
+			if = {
+				limit = {
+					75 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 75
+				}
+			}
+			if = {
+				limit = {
+					69 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 69
+				}
+				69 = {
+					add_core_of = GER
+				}
+			}
+			if = {
+				limit = {
+					9 = {
+						OR = {
+							is_owned_by = HUN
+						}
+					}
+				}
+				GER = {
+					transfer_state = 9
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				white_peace = GER
+			}
+			clr_global_flag = second_brothers_war
+			# We win the war
+			transfer_state = 52
+			transfer_state = 53
+			transfer_state = 54
+			transfer_state = 50
+		}
+	}
+}

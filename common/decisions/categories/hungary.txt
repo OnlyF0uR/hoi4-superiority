@@ -35,10 +35,9 @@ HUN_brothers_conflict_cat = {
 	}
 	priority = 90
 	visible = {
-		AND = {
-			has_completed_focus = HUN_ignite_the_conflict
-			has_country_flag = HUNGER_brothers_conflict
+		OR = {
+			has_global_flag = second_brothers_conflict
+			has_global_flag = second_brothers_war
 		}
 	}
-	# todo
 }

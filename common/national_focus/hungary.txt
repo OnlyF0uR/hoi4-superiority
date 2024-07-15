@@ -29,7 +29,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_the_peoples_future
 		}
-		x = 4
+		x = 0
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -59,7 +59,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_elect_a_fascist_king
 		}
-		x = -11
+		x = -16
 		y = 1
 		relative_position_id = HUN_history_of_royals
 		cost = 10
@@ -320,7 +320,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = HUN_announce_ambitions
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 60
 		}
@@ -488,11 +488,11 @@ focus_tree = {
 		id = HUN_invest_in_education
 		icon = GFX_focus_research2
 		prerequisite = {
-			focus = HUN_rural_reforms
+			focus = HUN_reduce_poverty
 		}
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = HUN_rural_reforms
+		relative_position_id = HUN_reduce_poverty
 		cost = 10
 		ai_will_do = {
 			factor = 60
@@ -789,8 +789,8 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			add_war_support = 0.12
-			add_manpower = 1000000
+			add_war_support = 0.1
+			add_manpower = 100000
 		}
 	}
 	focus = {
@@ -805,9 +805,6 @@ focus_tree = {
 		cost = 10
 		ai_will_do = {
 			factor = 60
-		}
-		available = {
-			has_war_support > 0.74
 		}
 		complete_tooltip = {
 			every_state = {
@@ -1024,6 +1021,20 @@ focus_tree = {
 		prerequisite = {
 			focus = HUN_diverisy_elite_forces
 		}
+		available = {
+			74 = {
+				is_owned_by = ROOT
+			}
+			75 = {
+				is_owned_by = ROOT
+			}
+			69 = {
+				is_owned_by = ROOT
+			}
+			9 = {
+				is_owned_by = ROOT
+			}
+		}
 		x = 1
 		y = 1
 		relative_position_id = HUN_staff_excercises
@@ -1039,7 +1050,7 @@ focus_tree = {
 				}
 			}
 			unlock_decision_category_tooltip = GER_brothers_conflict_cat
-			set_country_flag = HUNGER_brothers_conflict
+			set_global_flag = second_brothers_conflict
 		}
 	}
 	############################
@@ -1172,125 +1183,312 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = HUN_rapproachement_with_little_entente
-		icon = GFX_focus_generic_little_entente
+		id = HUN_governmental_disclosure
+		icon = GFX_goal_support_democracy
 		prerequisite = {
 			focus = HUN_responsible_government
 		}
 		x = 0
-		y = 2
-		relative_position_id = HUN_elect_a_democratic_king
+		y = 1
+		relative_position_id = HUN_responsible_government
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_internal_affairs
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_governmental_disclosure
+		}
+		x = -4
+		y = 1
+		relative_position_id = HUN_governmental_disclosure
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_increase_national_unity
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_internal_affairs
+		}
+		x = -2
+		y = 1
+		relative_position_id = HUN_internal_affairs
 		cost = 10
 		ai_will_do = {
 			factor = 50
 		}
-		available = {
-		}
-		bypass = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				OR = {
-					NOT = {
-						has_idea = HUN_treaty_of_triannon_aat
-					}
-					AND = {
-						ROM = {
-							OR = {
-								exists = no
-								is_puppet = yes
-							}
-						}
-						FRA = {
-							OR = {
-								exists = no
-								is_puppet = yes
-								NOT = {
-									has_completed_focus = FRA_strengthen_the_little_entente
-								}
-							}
-						}
-					}
-				}
-			}
-			else = {
-				OR = {
-					NOT = {
-						has_idea = HUN_treaty_of_triannon
-					}
-					AND = {
-						ROM = {
-							OR = {
-								exists = no
-								is_puppet = yes
-							}
-						}
-						FRA = {
-							OR = {
-								exists = no
-								is_puppet = yes
-								NOT = {
-									has_completed_focus = FRA_strengthen_the_little_entente
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		available_if_capitulated = yes
 		completion_reward = {
-			if = {
-				limit = {
-					FRA = {
-						exists = yes
-						is_subject = no
-						has_completed_focus = FRA_strengthen_the_little_entente
-					}
-				}
-				FRA = {
-					country_event = {
-						id = DOD_hungary.30
-					}
-				}
-			}
-			if = {
-				limit = {
-					country_exists = ROM
-					OR = {
-						FRA = {
-							NOT = {
-								has_completed_focus = FRA_strengthen_the_little_entente
-							}
-						}
-						FRA = {
-							exists = no
-						}
-						FRA = {
-							is_subject = yes
-						}
-					}
-				}
-				ROM = {
-					country_event = {
-						id = DOD_hungary.30
-					}
-				}
-			}
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_decentralize_the_state
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_increase_national_unity
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_increase_national_unity
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_advanced_research_institues
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_decentralize_the_state
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_decentralize_the_state
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	focus = {
+		id = HUN_regulate_ministries
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_decentralize_the_state
+		}
+		x = 2
+		y = 1
+		relative_position_id = HUN_decentralize_the_state
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_nationalize_the_bank
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_regulate_ministries
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_regulate_ministries
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_protect_the_common_man
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_internal_affairs
+		}
+		x = 2
+		y = 1
+		relative_position_id = HUN_internal_affairs
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_equality_of_opportunity
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_protect_the_common_man
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_protect_the_common_man
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_justice_for_all
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_equality_of_opportunity
+		}
+		prerequisite = {
+			focus = HUN_regulate_ministries
+		}
+		x = 0
+		y = 2
+		relative_position_id = HUN_equality_of_opportunity
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_preserve_what_is_right
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_justice_for_all
+		}
+		prerequisite = {
+			focus = HUN_anticipate_an_invation
+		}
+		x = 2
+		y = 1
+		relative_position_id = HUN_justice_for_all
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_bastian_of_totalitarian_resistance
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_governmental_disclosure
+		}
+		x = 4
+		y = 1
+		relative_position_id = HUN_governmental_disclosure
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_militarize_secret_services
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_bastian_of_totalitarian_resistance
+			focus = HUN_renounce_the_treaty_of_trianon
+		}
+		x = 8
+		y = 1
+		relative_position_id = HUN_bastian_of_totalitarian_resistance
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_prepare_covert_operations
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_militarize_secret_services
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_militarize_secret_services
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_host_balkan_defense_conference
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_bastian_of_totalitarian_resistance
+		}
+		x = -2
+		y = 1
+		relative_position_id = HUN_bastian_of_totalitarian_resistance
+		cost = 5
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_anticipate_an_invation
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_host_balkan_defense_conference
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_host_balkan_defense_conference
+		cost = 10
+		ai_will_do = {
+			factor = 50
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
 		}
 	}
 	focus = {
 		id = HUN_join_allies
 		icon = GFX_goal_generic_alliance
 		prerequisite = {
-			focus = HUN_rapproachement_with_little_entente
+			focus = HUN_anticipate_an_invation
 		}
 		mutually_exclusive = {
-			focus = HUN_the_balkan_pact
+			focus = HUN_anti_totalitarian_coalition
 		}
-		x = -1
-		y = 3
-		relative_position_id = HUN_elect_a_democratic_king
+		x = 0
+		y = 1
+		relative_position_id = HUN_anticipate_an_invation
 		cost = 10
 		ai_will_do = {
 			factor = 60
@@ -1354,17 +1552,17 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = HUN_the_balkan_pact
+		id = HUN_anti_totalitarian_coalition
 		icon = GFX_goal_generic_national_unity
 		prerequisite = {
-			focus = HUN_rapproachement_with_little_entente
+			focus = HUN_anticipate_an_invation
 		}
 		mutually_exclusive = {
 			focus = HUN_join_allies
 		}
-		x = 1
-		y = 3
-		relative_position_id = HUN_elect_a_democratic_king
+		x = 2
+		y = 1
+		relative_position_id = HUN_anticipate_an_invation
 		cost = 10
 		ai_will_do = {
 			factor = 60
@@ -1377,64 +1575,132 @@ focus_tree = {
 			set_rule = {
 				can_create_factions = yes
 			}
-			create_faction = HUN_BALKAN_FACTION
+			create_faction = HUN_anti_totalitarian_coalition
 		}
 	}
 	focus = {
-		id = HUN_an_unlikely_alliance
-		icon = GFX_goal_generic_major_alliance
+		id = HUN_against_all_odds
+		icon = GFX_goal_support_democracy
 		prerequisite = {
-			focus = HUN_the_balkan_pact
+			focus = HUN_anti_totalitarian_coalition
 		}
-		x = 1
-		y = 4
-		relative_position_id = HUN_elect_a_democratic_king
-		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = HUN_anti_totalitarian_coalition
+		cost = 5
 		ai_will_do = {
 			factor = 60
 		}
-		available = {
-			ROM = {
-				is_in_faction = no
-			}
-		}
 		available_if_capitulated = yes
 		completion_reward = {
-			ROM = {
-				country_event = generic.5
-			}
+			# todo
 		}
 	}
 	focus = {
-		id = HUN_joint_oil_exploitation_company
-		icon = GFX_goal_generic_oil_refinery
+		id = HUN_invite_the_yugoslavians
+		icon = GFX_goal_support_democracy
 		prerequisite = {
-			focus = HUN_join_allies
+			focus = HUN_anti_totalitarian_coalition
 		}
-		x = -1
-		y = 4
-		relative_position_id = HUN_elect_a_democratic_king
-		cost = 10
+		x = 2
+		y = 1
+		relative_position_id = HUN_anti_totalitarian_coalition
+		cost = 5
 		ai_will_do = {
-			factor = 50
+			factor = 60
 		}
-		available = {
-			is_in_faction_with = ENG
-			ENG = {
-				is_faction_leader = yes
-				has_government = democratic
-			}
-		}
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
+		available_if_capitulated = yes
 		completion_reward = {
-			add_to_tech_sharing_group = HUN_joint_oil_exploitation_company_tech_group
-			ENG = {
-				add_to_tech_sharing_group = HUN_joint_oil_exploitation_company_tech_group
-			}
+			# todo
 		}
 	}
+	focus = {
+		id = HUN_invite_bulgaria
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_anti_totalitarian_coalition
+		}
+		x = 4
+		y = 1
+		relative_position_id = HUN_anti_totalitarian_coalition
+		cost = 5
+		ai_will_do = {
+			factor = 60
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_anticipate_iraqi_victory
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_anti_totalitarian_coalition
+		}
+		prerequisite = {
+			focus = HUN_prepare_covert_operations
+		}
+		x = 6
+		y = 1
+		relative_position_id = HUN_anti_totalitarian_coalition
+		cost = 5
+		ai_will_do = {
+			factor = 60
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_invite_turkey
+		icon = GFX_goal_support_democracy
+		prerequisite = {
+			focus = HUN_anticipate_iraqi_victory
+		}
+		x = 0
+		y = 1
+		relative_position_id = HUN_anticipate_iraqi_victory
+		cost = 5
+		ai_will_do = {
+			factor = 60
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	# focus = {
+	# 	id = HUN_joint_oil_exploitation_company
+	# 	icon = GFX_goal_generic_oil_refinery
+	# 	prerequisite = {
+	# 		focus = HUN_join_allies
+	# 	}
+	# 	x = -1
+	# 	y = 4
+	# 	relative_position_id = HUN_elect_a_democratic_king
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 50
+	# 	}
+	# 	available = {
+	# 		is_in_faction_with = ENG
+	# 		ENG = {
+	# 			is_faction_leader = yes
+	# 			has_government = democratic
+	# 		}
+	# 	}
+	# 	search_filters = {
+	# 		FOCUS_FILTER_RESEARCH
+	# 	}
+	# 	completion_reward = {
+	# 		add_to_tech_sharing_group = HUN_joint_oil_exploitation_company_tech_group
+	# 		ENG = {
+	# 			add_to_tech_sharing_group = HUN_joint_oil_exploitation_company_tech_group
+	# 		}
+	# 	}
+	# }
 	############################
 	####### FASCIST KING #######
 	############################
@@ -1450,7 +1716,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_invite_the_habsburg_prince
 		}
-		x = 4
+		x = 15
 		y = 1
 		relative_position_id = HUN_history_of_royals
 		cost = 10
@@ -1519,7 +1785,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = HUN_history_of_royals
 		}
-		x = 15
+		x = 22
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -2950,7 +3216,7 @@ focus_tree = {
 	focus = {
 		id = HUN_industrial_reforms
 		icon = GFX_goal_generic_construction
-		x = 27
+		x = 35
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -3484,7 +3750,7 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		completion_reward = {
-			add_research_slot = 1
+			# add research speed
 		}
 	}
 	focus = {
@@ -3607,7 +3873,7 @@ focus_tree = {
 	focus = {
 		id = HUN_secret_rearmament
 		icon = GFX_focus_secret_rearmament
-		x = 41
+		x = 50
 		y = 0
 		cost = 10
 		ai_will_do = {
@@ -3662,7 +3928,7 @@ focus_tree = {
 			custom_effect_tooltip = HUN_modify_disorganised_army_ns_intro
 			add_to_variable = {
 				HUN_disorganised_army_planning_speed = 0.15
-				tooltip = planning_speed_positive_tt
+				tooltip = planning_speed_factor_positive_tt
 			}
 			add_to_variable = {
 				HUN_disorganised_army_org_factor = 0.05
@@ -3688,6 +3954,15 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			custom_effect_tooltip = HUN_modify_disorganised_army_ns_intro
+			add_to_variable = {
+				HUN_disorganised_army_army_attack_factor = 0.05
+				tooltip = army_attack_factor_positive_tt
+			}
+			add_to_variable = {
+				HUN_disorganised_army_army_defense_factor = 0.1
+				tooltip = army_defense_factor_positive_tt
+			}
 		}
 	}
 	focus = {
@@ -3705,6 +3980,12 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_superior_small_arms
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
 		}
 	}
 	focus = {
@@ -3722,6 +4003,18 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_line_artillery_support
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = HUN_line_artillery_support
+				uses = 1
+				category = cat_superior_firepower
+			}
 		}
 	}
 	focus = {
@@ -3782,6 +4075,11 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			custom_effect_tooltip = HUN_modify_disorganised_army_ns_intro
+			add_to_variable = {
+				HUN_disorganised_army_army_speed_factor = 0.15
+				tooltip = army_speed_factor_positive_tt
+			}
 		}
 	}
 	focus = {
@@ -3799,6 +4097,12 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_motorized_supply
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+			}
 		}
 	}
 	focus = {
@@ -3816,6 +4120,17 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			custom_effect_tooltip = HUN_modify_disorganised_army_ns_intro
+			add_to_variable = {
+				HUN_disorganised_army_army_attack_factor = 0.1
+				tooltip = army_attack_factor_positive_tt
+			}
+			add_tech_bonus = {
+				name = HUN_mechanized_infantry
+				bonus = 2
+				uses = 1
+				category = cat_mechanized_equipment
+			}
 		}
 	}
 	focus = {
@@ -3833,6 +4148,18 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_armoured_support
+				bonus = 1
+				uses = 2
+				category = cat_armored_cars
+			}
+			add_tech_bonus = {
+				name = HUN_armoured_support
+				bonus = 0.75
+				uses = 2
+				category = armor
+			}
 		}
 	}
 	focus = {
@@ -3853,6 +4180,11 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_light_tanks
+				ahead_reduction = 2
+				category = cat_light_armor
+			}
 		}
 	}
 	focus = {
@@ -3873,6 +4205,11 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
+			add_tech_bonus = {
+				name = HUN_medium_tanks
+				ahead_reduction = 2
+				category = cat_medium_armor
+			}
 		}
 	}
 	focus = {
@@ -3945,7 +4282,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = HUN_line_artillery_support
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 60
 		}
@@ -3954,15 +4291,15 @@ focus_tree = {
 			custom_effect_tooltip = HUN_modify_disorganised_army_ns_intro
 			add_to_variable = {
 				HUN_disorganised_army_planning_speed = 0.15
-				tooltip = planning_speed_positive_tt
+				tooltip = planning_speed_factor_positive_tt
 			}
 			add_to_variable = {
-				HUN_disorganised_army_army_attack_factor = 0.1
+				HUN_disorganised_army_army_attack_factor = 0.05
 				tooltip = army_attack_factor_positive_tt
 			}
 			add_to_variable = {
-				HUN_disorganised_army_army_defense_factor = 0.1
-				tooltip = army_defense_factor_positive_tt
+				HUN_disorganised_army_org_loss_when_moving = -0.1
+				tooltip = org_loss_when_moving_positive_tt
 			}
 		}
 	}
@@ -3985,10 +4322,6 @@ focus_tree = {
 			add_to_variable = {
 				HUN_disorganised_army_training_time_factor = -0.25
 				tooltip = training_time_factor_positive_tt
-			}
-			add_to_variable = {
-				HUN_disorganised_army_org_loss_when_moving = -0.1
-				tooltip = org_loss_when_moving_positive_tt
 			}
 		}
 	}

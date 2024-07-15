@@ -21,10 +21,6 @@ if = {
 
 # Disorganised army
 add_to_variable = {
-	HUN_disorganised_army_war_support_factor = -0.25
-}
-
-add_to_variable = {
 	HUN_disorganised_army_army_speed_factor = -0.2
 }
 

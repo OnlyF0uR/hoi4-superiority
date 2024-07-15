@@ -3,11 +3,11 @@ HUN_disorganised_army_modifier = {
 		always = yes
 	}
 	icon = GFX_idea_tur_disorganised_armed_forces
-	war_support_factor = HUN_disorganised_army_war_support_factor
 	army_speed_factor = HUN_disorganised_army_army_speed_factor
 	army_org_factor = HUN_disorganised_army_org_factor
 	org_loss_when_moving = HUN_disorganised_army_org_loss_when_moving
 	army_defence_factor = HUN_disorganised_army_army_defence_factor
 	army_attack_factor = HUN_disorganised_army_army_attack_factor
 	training_time_factor = HUN_disorganised_army_training_time_factor
+	planning_speed = HUN_disorganised_army_planning_speed
 }

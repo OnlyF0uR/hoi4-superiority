@@ -1568,7 +1568,8 @@ special_projects = {
 			NOT = {
 				has_global_flag = GER_heavy_water_production_underway
 			}
-		}		#can be removed via intelligence ops
+		}
+		#can be removed via intelligence ops
 		days_remove = 365
 		remove_effect = {
 			add_tech_bonus = {
@@ -2005,119 +2006,165 @@ GER_aid_hun_rom_democratic_civil_war = {
 	}
 }
 
-GER_austro_hungarian_empire = {
-	GER_reform_austro_hungarian_empire = {
+GER_brothers_conflict_cat = {
+	HUN_defensive_military_operation = {
 		allowed = {
-			OR = {
-				original_tag = AUS
-				original_tag = HUN
-				original_tag = CZE
-			}
-		}
-		available = {
-			AUS = {
-				OR = {
-					has_government = neutrality
-					neutrality > 0.4
-				}
-			}
-			HUN = {
-				OR = {
-					has_government = neutrality
-					neutrality > 0.4
-				}
-			}
-			CZE = {
-				OR = {
-					has_government = neutrality
-					neutrality > 0.4
-				}
-			}
+			tag = GER
 		}
 		visible = {
-			GER = {
-				has_completed_focus = GER_rekindle_imperial_sentiment
-				has_government = neutrality
-			}
-			AUS = {
-				exists = yes
-			}
-			HUN = {
-				exists = yes
-			}
-			CZE = {
-				exists = yes
-			}
-			NOT = {
-				has_global_flag = GER_reformed_austro_hungarian_empire
+			has_global_flag = second_brothers_conflict
+		}
+		activation = {
+			has_global_flag = second_brothers_conflict
+		}
+		available = {
+			hidden_trigger = {
+				always = no
 			}
 		}
-		cost = 0
-		fire_only_once = yes
-		ai_will_do = {
-			factor = 200
-			modifier = {
-				factor = 0
-				tag = HUN
+		icon = POL_looming_peasants_strike
+		is_good = no
+		cancel_trigger = {
+			HUN = {
+				OR = {
+					exists = no
+					is_in_faction_with = GER
+				}
 			}
-			modifier = {
-				factor = 0
-				tag = CZE
+		}
+		war_with_on_timeout = HUN
+		days_mission_timeout = 100
+		selectable_mission = no
+		timeout_effect = {
+			effect_tooltip = {
+				HUN = {
+					declare_war_on = {
+						target = GER
+					}
+				}
+			}
+		}
+	}
+	HUN_southern_defense = {
+		allowed = {
+			tag = GER
+		}
+		visible = {
+			has_global_flag = second_brothers_war
+		}
+		activation = {
+			has_global_flag = second_brothers_war
+		}
+		# Win conditions
+		available = {
+			# if we control states
+			AND = {
+				OR = {
+					AND = {
+						52 = {
+							is_controlled_by_ROOT_or_ally = yes
+						}
+						53 = {
+							is_controlled_by_ROOT_or_ally = yes
+						}
+						54 = {
+							is_controlled_by_ROOT_or_ally = yes
+						}
+						50 = {
+							is_controlled_by_ROOT_or_ally = yes
+						}
+					}
+					GER = {
+						surrender_progress < 0.51
+					}
+					HUN = {
+						surrender_progress > 0.5
+					}
+				}
+				hidden_trigger = {
+					always = no
+				}
+			}
+		}
+		icon = POL_looming_peasants_strike
+		is_good = yes
+		cancel_trigger = {
+			NOT = {
+				has_global_flag = second_brothers_war
+			}
+		}
+		days_mission_timeout = 60
+		selectable_mission = no
+		timeout_effect = {
+			effect_tooltip = {
+				HUN = {
+					transfer_state = 52
+				}
+				HUN = {
+					transfer_state = 53
+				}
+				HUN = {
+					transfer_state = 54
+				}
+				HUN = {
+					transfer_state = 50
+				}
 			}
 		}
 		complete_effect = {
-			custom_effect_tooltip = GER_reform_austro_hungarian_empire_tt
-			hidden_effect = {
-				set_global_flag = GER_reformed_austro_hungarian_empire
-			}
-			if = {
-				limit = {
-					tag = AUS
-				}
-				HUN = {
-					country_event = {
-						id = wtt_germany.68
-						hours = 1
+			effect_tooltip = {
+				if = {
+					limit = {
+						74 = {
+							OR = {
+								is_owned_by = HUN
+							}
+						}
+					}
+					GER = {
+						transfer_state = 74
+					}
+					74 = {
+						add_core_of = GER
 					}
 				}
-				CZE = {
-					country_event = {
-						id = wtt_germany.68
-						hours = 3
+				if = {
+					limit = {
+						75 = {
+							OR = {
+								is_owned_by = HUN
+							}
+						}
+					}
+					GER = {
+						transfer_state = 75
 					}
 				}
-			}
-			if = {
-				limit = {
-					tag = HUN
-				}
-				AUS = {
-					country_event = {
-						id = wtt_germany.68
-						hours = 1
+				if = {
+					limit = {
+						69 = {
+							OR = {
+								is_owned_by = HUN
+							}
+						}
+					}
+					GER = {
+						transfer_state = 69
+					}
+					69 = {
+						add_core_of = GER
 					}
 				}
-				CZE = {
-					country_event = {
-						id = wtt_germany.68
-						hours = 3
+				if = {
+					limit = {
+						9 = {
+							OR = {
+								is_owned_by = HUN
+							}
+						}
 					}
-				}
-			}
-			if = {
-				limit = {
-					tag = CZE
-				}
-				HUN = {
-					country_event = {
-						id = wtt_germany.68
-						hours = 1
-					}
-				}
-				AUS = {
-					country_event = {
-						id = wtt_germany.68
-						hours = 3
+					GER = {
+						transfer_state = 9
 					}
 				}
 			}

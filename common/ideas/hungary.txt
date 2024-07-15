@@ -61,6 +61,7 @@ ideas = {
 			}
 		}
 		HUN_history_of_monarchs = {
+			picture = HUN_hungarian_monarchy_habsburg
 			allowed = {
 				original_tag = HUN
 				always = no

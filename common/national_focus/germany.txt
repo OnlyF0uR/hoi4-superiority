@@ -4933,6 +4933,9 @@ focus_tree = {
 		bypass = {
 			OR = {
 				CZE = {
+					exists = no
+				}
+				CZE = {
 					is_puppet_of = GER
 				}
 				CZE = {
@@ -4995,14 +4998,14 @@ focus_tree = {
 				}
 				add_state_claim = 9
 				add_state_claim = 75
-				create_wargoal = {
-					type = take_state_focus
-					target = CZE
-					generator = {
-						9
-						75
-					}
-				}
+				# create_wargoal = {
+				# 	type = take_state_focus
+				# 	target = CZE
+				# 	generator = {
+				# 		9
+				# 		75
+				# 	}
+				# }
 			}
 			if = {
 				limit = {
