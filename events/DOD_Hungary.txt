@@ -11080,3 +11080,17 @@ country_event = {
 		# Let hungary know that we do not support the cause
 	}
 }
+
+country_event = {
+	id = DOD_hungary.186
+	title = DOD_hungary.186.t
+	desc = DOD_hungary.186.desc
+	is_triggered_only = yes
+	option = {
+		name = DOD_hungary.186.a
+		ai_chance = {
+			base = 50
+		}
+		add_stability = -0.1
+	}
+}

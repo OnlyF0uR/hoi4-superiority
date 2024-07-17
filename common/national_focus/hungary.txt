@@ -2817,6 +2817,7 @@ focus_tree = {
 	############################
 	#### COMMUNIST BRANCH ######
 	############################
+	# todo: avenge the white terror
 	focus = {
 		id = HUN_council_of_peoples_commissars
 		icon = GFX_goal_support_communism
@@ -2827,7 +2828,7 @@ focus_tree = {
 			focus = HUN_strengthen_fascists
 		}
 		relative_position_id = HUN_the_peoples_future
-		x = 6
+		x = 8
 		y = 1
 		cost = 10
 		ai_will_do = {
@@ -2877,6 +2878,24 @@ focus_tree = {
 				}
 				kill_country_leader = yes
 			}
+			if = {
+				limit = {
+					SOV = {
+						NOT = {
+							has_completed_focus = SOV_the_anti_soviet_trotskyist_center
+						}
+					}
+				}
+				create_country_leader = {
+					name = "Béla Kun"
+					desc = "POLITICS_BELA_KUN_DESC"
+					picture = GFX_Portrait_hungary_bela_kun
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+					}
+				}
+			}
 			set_politics = {
 				ruling_party = communism
 				elections_allowed = no
@@ -2887,83 +2906,202 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = HUN_the_hungarian_red_army
-		icon = GFX_goal_generic_allies_build_infantry
+		id = HUN_class_against_class
+		icon = GFX_goal_support_communism
 		prerequisite = {
 			focus = HUN_assassinate_horthy
 		}
-		x = -3
-		y = 2
-		relative_position_id = HUN_council_of_peoples_commissars
+		mutually_exclusive = {
+			focus = HUN_adopt_the_popular_front
+		}
+		relative_position_id = HUN_assassinate_horthy
+		x = 2
+		y = 1
 		cost = 10
 		ai_will_do = {
-			factor = 70
+			factor = 30
 		}
-		available = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				NOT = {
-					has_idea = HUN_treaty_of_triannon_aat
-				}
-			}
-			else = {
-				NOT = {
-					has_idea = HUN_treaty_of_triannon
-				}
-			}
-		}
-		search_filters = {
-			FOCUS_FILTER_MANPOWER
-		}
+		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = HUN_the_hungarian_red_army
+			add_ideas = {
+				HUN_class_against_class_idea
+			}
 		}
 	}
 	focus = {
-		id = HUN_soviet_hungarian_military_academy
-		icon = GFX_focus_generic_soviet_politics
+		id = HUN_an_isolationist_approach
+		icon = GFX_goal_support_communism
 		prerequisite = {
-			focus = HUN_the_hungarian_red_army
+			focus = HUN_class_against_class
 		}
-		x = -3
-		y = 3
-		relative_position_id = HUN_council_of_peoples_commissars
+		relative_position_id = HUN_class_against_class
+		x = 0
+		y = 1
 		cost = 10
 		ai_will_do = {
-			factor = 70
+			factor = 30
 		}
-		available = {
-			SOU = {
-				exists = yes
-				has_government = communism
-			}
-		}
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
+		available_if_capitulated = yes
 		completion_reward = {
-			add_doctrine_cost_reduction = {
-				name = HUN_soviet_hungarian_military_academy
-				cost_reduction = 0.35
-				uses = 2
-				category = land_doctrine
-			}
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_purge_the_capitalist_class
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_an_isolationist_approach
+		}
+		relative_position_id = HUN_an_isolationist_approach
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_spread_the_true_revolution
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_an_isolationist_approach
+		}
+		relative_position_id = HUN_an_isolationist_approach
+		x = 2
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_the_turul_is_red
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_an_isolationist_approach
+		}
+		mutually_exclusive = {
+			focus = HUN_spread_the_true_revolution
+		}
+		relative_position_id = HUN_an_isolationist_approach
+		x = 4
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_adopt_the_popular_front
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_assassinate_horthy
+		}
+		relative_position_id = HUN_assassinate_horthy
+		x = -2
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_empower_the_proletariat
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_adopt_the_popular_front
+		}
+		relative_position_id = HUN_adopt_the_popular_front
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_align_with_the_soviets
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_empower_the_proletariat
+		}
+		relative_position_id = HUN_empower_the_proletariat
+		x = 0
+		y = 2
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_military_cooperation
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_align_with_the_soviets
+		}
+		relative_position_id = HUN_align_with_the_soviets
+		x = -2
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	focus = {
+		id = HUN_economic_aid
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_align_with_the_soviets
+		}
+		relative_position_id = HUN_align_with_the_soviets
+		x = 0
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
 		}
 	}
 	focus = {
 		id = HUN_join_comintern
 		icon = GFX_focus_generic_join_comintern
 		prerequisite = {
-			focus = HUN_assassinate_horthy
-		}
-		mutually_exclusive = {
-			focus = HUN_the_revolutionary_council
+			focus = HUN_military_cooperation
 		}
 		x = 0
-		y = 2
-		relative_position_id = HUN_council_of_peoples_commissars
+		y = 1
+		relative_position_id = HUN_military_cooperation
 		cost = 10
 		ai_will_do = {
 			factor = 80
@@ -3011,25 +3149,6 @@ focus_tree = {
 				SOV = {
 					country_event = generic.2
 				}
-				# if = {
-				# 	limit = {
-				# 		SOV = {
-				# 			NOT = {
-				# 				has_completed_focus = SOV_the_anti_soviet_trotskyist_center
-				# 			}
-				# 		}
-				# 	}
-				# 	retire_country_leader = yes
-				# 	create_country_leader = {
-				# 		name = "Bela Kun"
-				# 		desc = "POLITICS_BELA_KUN_DESC"
-				# 		picture = GFX_Portrait_hungary_bela_kun
-				# 		expire = "1965.1.1"
-				# 		ideology = marxism
-				# 		traits = {
-				# 		}
-				# 	}
-				# }
 			}
 			else = {
 				get_best_alliance_match_communism_effect = yes
@@ -3040,111 +3159,250 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = HUN_the_revolutionary_council
-		icon = GFX_goal_generic_national_unity
+		id = HUN_cautious_western_collaboration
+		icon = GFX_goal_support_communism
 		prerequisite = {
-			focus = HUN_assassinate_horthy
+			focus = HUN_empower_the_proletariat
 		}
-		mutually_exclusive = {
-			focus = HUN_join_comintern
-		}
-		x = 2
+		relative_position_id = HUN_empower_the_proletariat
+		x = -2
 		y = 1
-		relative_position_id = HUN_assassinate_horthy
 		cost = 10
 		ai_will_do = {
-			factor = 60
-		}
-		available = {
-			is_in_faction = no
-			is_subject = no
+			factor = 30
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			set_rule = {
-				can_create_factions = yes
-			}
-			create_faction = HUN_FACTION_COMMIE
+			# todo
 		}
 	}
 	focus = {
-		id = HUN_pressure_romania
-		icon = GFX_goal_demand_sudetenland
+		id = HUN_state_owned_instiutions
+		icon = GFX_goal_support_communism
 		prerequisite = {
-			focus = HUN_join_comintern
+			focus = HUN_empower_the_proletariat
+			focus = HUN_purge_the_capitalist_class
 		}
-		x = -1
+		relative_position_id = HUN_class_against_class
+		x = -2
 		y = 3
-		relative_position_id = HUN_council_of_peoples_commissars
 		cost = 10
 		ai_will_do = {
-			factor = 60
+			factor = 30
 		}
-		available = {
-			ROM = {
-				exists = yes
-				NOT = {
-					is_in_faction_with = SOV
-				}
-				NOT = {
-					has_war_with = SOV
-				}
-				OR = {
-					owns_state = 76
-					owns_state = 78
-				}
-			}
-			NOT = {
-				has_war_with = SOV
-			}
-			SOV_comintern_joinable = yes
-		}
+		available_if_capitulated = yes
 		completion_reward = {
-			SOV = {
-				country_event = DOD_hungary.110
-			}
+			# todo
 		}
 	}
 	focus = {
-		id = HUN_intervene_in_czechoslovakia
-		icon = GFX_goal_generic_political_pressure
+		id = HUN_seize_private_property
+		icon = GFX_goal_support_communism
 		prerequisite = {
-			focus = HUN_join_comintern
+			focus = HUN_state_owned_instiutions
 		}
-		x = 1
-		y = 3
-		relative_position_id = HUN_council_of_peoples_commissars
+		relative_position_id = HUN_state_owned_instiutions
+		x = 0
+		y = 1
 		cost = 10
 		ai_will_do = {
-			factor = 60
+			factor = 30
 		}
-		available = {
-			CZE = {
-				exists = yes
-			}
-			NOT = {
-				has_war_with = SOV
-			}
-			CZE = {
-				NOT = {
-					is_in_faction_with = SOV
-				}
-			}
-			SOV_comintern_joinable = yes
-		}
+		available_if_capitulated = yes
 		completion_reward = {
-			SOV = {
-				country_event = DOD_hungary.120
-			}
+			# todo
 		}
 	}
+	focus = {
+		id = HUN_franco-soviet_trade_agreement
+		icon = GFX_goal_support_communism
+		prerequisite = {
+			focus = HUN_cautious_western_collaboration
+		}
+		relative_position_id = HUN_cautious_western_collaboration
+		x = -2
+		y = 1
+		cost = 10
+		ai_will_do = {
+			factor = 30
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			# todo
+		}
+	}
+	# focus = {
+	# 	id = HUN_the_hungarian_red_army
+	# 	icon = GFX_goal_generic_allies_build_infantry
+	# 	prerequisite = {
+	# 		focus = HUN_assassinate_horthy
+	# 	}
+	# 	x = -3
+	# 	y = 2
+	# 	relative_position_id = HUN_council_of_peoples_commissars
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 70
+	# 	}
+	# 	available = {
+	# 		if = {
+	# 			limit = {
+	# 				has_dlc = "Arms Against Tyranny"
+	# 			}
+	# 			NOT = {
+	# 				has_idea = HUN_treaty_of_triannon_aat
+	# 			}
+	# 		}
+	# 		else = {
+	# 			NOT = {
+	# 				has_idea = HUN_treaty_of_triannon
+	# 			}
+	# 		}
+	# 	}
+	# 	search_filters = {
+	# 		FOCUS_FILTER_MANPOWER
+	# 	}
+	# 	completion_reward = {
+	# 		add_ideas = HUN_the_hungarian_red_army
+	# 	}
+	# }
+	# focus = {
+	# 	id = HUN_soviet_hungarian_military_academy
+	# 	icon = GFX_focus_generic_soviet_politics
+	# 	prerequisite = {
+	# 		focus = HUN_the_hungarian_red_army
+	# 	}
+	# 	x = -3
+	# 	y = 3
+	# 	relative_position_id = HUN_council_of_peoples_commissars
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 70
+	# 	}
+	# 	available = {
+	# 		SOU = {
+	# 			exists = yes
+	# 			has_government = communism
+	# 		}
+	# 	}
+	# 	search_filters = {
+	# 		FOCUS_FILTER_RESEARCH
+	# 	}
+	# 	completion_reward = {
+	# 		add_doctrine_cost_reduction = {
+	# 			name = HUN_soviet_hungarian_military_academy
+	# 			cost_reduction = 0.35
+	# 			uses = 2
+	# 			category = land_doctrine
+	# 		}
+	# 	}
+	# }
+	# focus = {
+	# 	id = HUN_the_revolutionary_council
+	# 	icon = GFX_goal_generic_national_unity
+	# 	prerequisite = {
+	# 		focus = HUN_assassinate_horthy
+	# 	}
+	# 	mutually_exclusive = {
+	# 		focus = HUN_join_comintern
+	# 	}
+	# 	x = 2
+	# 	y = 1
+	# 	relative_position_id = HUN_assassinate_horthy
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 60
+	# 	}
+	# 	available = {
+	# 		is_in_faction = no
+	# 		is_subject = no
+	# 	}
+	# 	available_if_capitulated = yes
+	# 	completion_reward = {
+	# 		set_rule = {
+	# 			can_create_factions = yes
+	# 		}
+	# 		create_faction = HUN_FACTION_COMMIE
+	# 	}
+	# }
+	# focus = {
+	# 	id = HUN_pressure_romania
+	# 	icon = GFX_goal_demand_sudetenland
+	# 	prerequisite = {
+	# 		focus = HUN_join_comintern
+	# 	}
+	# 	x = -1
+	# 	y = 3
+	# 	relative_position_id = HUN_council_of_peoples_commissars
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 60
+	# 	}
+	# 	available = {
+	# 		ROM = {
+	# 			exists = yes
+	# 			NOT = {
+	# 				is_in_faction_with = SOV
+	# 			}
+	# 			NOT = {
+	# 				has_war_with = SOV
+	# 			}
+	# 			OR = {
+	# 				owns_state = 76
+	# 				owns_state = 78
+	# 			}
+	# 		}
+	# 		NOT = {
+	# 			has_war_with = SOV
+	# 		}
+	# 		SOV_comintern_joinable = yes
+	# 	}
+	# 	completion_reward = {
+	# 		SOV = {
+	# 			country_event = DOD_hungary.110
+	# 		}
+	# 	}
+	# }
+	# focus = {
+	# 	id = HUN_intervene_in_czechoslovakia
+	# 	icon = GFX_goal_generic_political_pressure
+	# 	prerequisite = {
+	# 		focus = HUN_join_comintern
+	# 	}
+	# 	x = 1
+	# 	y = 3
+	# 	relative_position_id = HUN_council_of_peoples_commissars
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 60
+	# 	}
+	# 	available = {
+	# 		CZE = {
+	# 			exists = yes
+	# 		}
+	# 		NOT = {
+	# 			has_war_with = SOV
+	# 		}
+	# 		CZE = {
+	# 			NOT = {
+	# 				is_in_faction_with = SOV
+	# 			}
+	# 		}
+	# 		SOV_comintern_joinable = yes
+	# 	}
+	# 	completion_reward = {
+	# 		SOV = {
+	# 			country_event = DOD_hungary.120
+	# 		}
+	# 	}
+	# }
 	############################
 	##### INDUSTRY BRANCH 2 ######
 	############################
 	focus = {
 		id = HUN_industrial_reforms
 		icon = GFX_goal_generic_construction
-		x = 35
+		x = 37
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -3822,7 +4080,7 @@ focus_tree = {
 	focus = {
 		id = HUN_secret_rearmament
 		icon = GFX_focus_secret_rearmament
-		x = 50
+		x = 51
 		y = 0
 		cost = 10
 		ai_will_do = {
@@ -3864,7 +4122,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = HUN_secret_rearmament
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 60
 		}
