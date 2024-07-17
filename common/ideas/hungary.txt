@@ -517,7 +517,6 @@ ideas = {
 			modifier = {
 				stability_factor = 0.05
 				consumer_goods_factor = 0.15
-				production_speed_buildings_factor = 0.15
 				industrial_capacity_factory = 0.1
 			}
 		}
@@ -599,6 +598,8 @@ ideas = {
 				fascism_acceptance = -80
 				communism_acceptance = -80
 				drift_defence_factor = 0.5
+				supply_combat_penalties_on_core_factor = -0.15
+				army_core_defence_factor = 0.1
 			}
 		}
 		HUN_preserve_what_is_right_idea = {

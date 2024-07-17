@@ -1136,7 +1136,7 @@ focus_tree = {
 			factor = 50
 		}
 		available = {
-			democratic > 0.4
+			democratic > 0.35
 		}
 		available_if_capitulated = yes
 		search_filters = {
@@ -1376,7 +1376,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			add_popularity = {
-				ideology = neutrality
+				ideology = democratic
 				popularity = 0.1
 			}
 		}
@@ -1393,7 +1393,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = HUN_justice_for_all
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 50
 		}
@@ -1442,7 +1442,8 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			# todo
+			# todo upgrade to agency perhaps, maybe idea that gives more intel
+			# or something
 		}
 	}
 	focus = {
@@ -1460,7 +1461,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			# todo
+			# todo: add spy slot, less intel to other countries
 		}
 	}
 	focus = {
@@ -1474,11 +1475,25 @@ focus_tree = {
 		relative_position_id = HUN_bastian_of_totalitarian_resistance
 		cost = 5
 		ai_will_do = {
-			factor = 50
+			factor = 75
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			# todo
+			ROM = {
+				country_event = DOD_hungary.184
+			}
+			YUG = {
+				country_event = DOD_hungary.184
+			}
+			BUL = {
+				country_event = DOD_hungary.184
+			}
+			GRE = {
+				country_event = DOD_hungary.184
+			}
+			TUR = {
+				country_event = DOD_hungary.184
+			}
 		}
 	}
 	focus = {
@@ -1591,6 +1606,8 @@ focus_tree = {
 			}
 		}
 	}
+	# todo: build air fields (perhaps as mission, 4x in each state)
+	# todo: build static anti air (perhaps as mission, 2x in each state)
 	focus = {
 		id = HUN_anti_totalitarian_coalition
 		icon = GFX_focus_BRA_reach_out_to_military_dem
@@ -3489,7 +3506,7 @@ focus_tree = {
 					tooltip = local_factories_tt
 				}
 				add_to_variable = {
-					HUN_state_development_local_building_slots_factor = 0.1
+					HUN_state_development_local_building_slots_factor = 0.2
 					tooltip = MODIFIER_LOCAL_BUILDING_SLOTS_FACTOR_tt
 				}
 				add_to_variable = {

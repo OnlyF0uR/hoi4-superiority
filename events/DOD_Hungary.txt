@@ -11019,3 +11019,64 @@ country_event = {
 		# hidden_effect = { news_event = { id = news.293 days = 1 } }
 	}
 }
+
+# Hungary announces balkan defense conference
+country_event = {
+	id = DOD_hungary.184
+	title = DOD_hungary.184.t
+	desc = DOD_hungary.184.desc
+	picture = GFX_report_event_vienna_award_negotiations
+	is_triggered_only = yes
+	option = {
+		name = DOD_hungary.184.a
+		ai_chance = {
+			base = 80
+			modifier = {
+				has_government = fascism
+				factor = 0.2
+			}
+			modifier = {
+				has_government = communism
+				factor = 0.4
+			}
+		}
+		set_country_flag = PARTICIPATING_IN_BALKAN_CONFERENCE
+		# Let Hungary know that we participate
+	}
+	option = {
+		name = DOD_hungary.184.b
+		add_stability = -0.05
+		# let Hungary know that we do not participate
+	}
+}
+
+# Do you pledge to protect the Balkans in the name of democracy!
+country_event = {
+	id = DOD_hungary.185
+	title = DOD_hungary.185.t
+	desc = DOD_hungary.185.desc
+	picture = GFX_report_event_vienna_award_negotiations
+	is_triggered_only = yes
+	option = {
+		name = DOD_hungary.185.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_government = fascism
+				factor = 0.1
+			}
+			modifier = {
+				has_government = communism
+				factor = 0.2
+			}
+		}
+		clr_country_flag = PARTICIPATING_IN_BALKAN_CONFERENCE
+		# todo: add idea that boosts democracy
+		add_war_support = 0.1
+		# Let Hungary know that we support the cause
+	}
+	option = {
+		name = DOD_hungary.185.b
+		# Let hungary know that we do not support the cause
+	}
+}

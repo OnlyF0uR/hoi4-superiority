@@ -2194,11 +2194,6 @@ country_event = {
 				factor = 0
 				is_historical_focus_on = yes
 				NOT = {
-					HUN = {
-						has_completed_focus = HUN_protect_austria
-					}
-				}
-				NOT = {
 					ITA = {
 						has_completed_focus = ITA_guarantee_austrian_independence
 					}
@@ -2217,15 +2212,6 @@ country_event = {
 				GER = {
 					has_army_size = {
 						size < 30
-					}
-				}
-			}
-			modifier = {
-				add = 100
-				HUN = {
-					OR = {
-						has_completed_focus = HUN_protect_austria
-						is_in_faction_with = AUS
 					}
 				}
 			}
@@ -5980,7 +5966,7 @@ country_event = {
 	option = {
 		name = germany.86.a
 		ai_chance = {
-			factor = 20
+			base = 20
 			modifier = {
 				factor = 0
 				is_historical_focus_on = yes
