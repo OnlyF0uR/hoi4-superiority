@@ -15,7 +15,7 @@ country_event = {
 		custom_effect_tooltip = GAME_OVER_TT
 		# Neither has completed the focus and Austria has an opinion of Hungary of less than 75
 		ai_chance = {
-			factor = 80
+			base = 80
 			modifier = {
 				# Decrease if railroads not integreted
 				NOT = {
@@ -48,7 +48,7 @@ country_event = {
 		#no
 		name = DOD_hungary.1.b
 		ai_chance = {
-			factor = 20
+			base = 20
 		}
 		# Austria votes no
 		HUN = {
@@ -104,7 +104,7 @@ country_event = {
 		#TO WAR
 		name = DOD_hungary.5.a
 		ai_chance = {
-			factor = 90
+			base = 90
 		}
 		create_wargoal = {
 			type = annex_everything
@@ -697,7 +697,7 @@ country_event = {
 		#stand ground
 		name = DOD_hungary.34.b
 		ai_chance = {
-			factor = 10
+			base = 10
 			modifier = {
 				threat < 0.2
 				factor = 2
@@ -5531,11 +5531,7 @@ country_event = {
 		# accept
 		name = DOD_hungary.144.a
 		ai_chance = {
-			factor = 10
-			modifier = {
-				has_completed_focus = HUN_rapproachement_with_little_entente
-				factor = 0
-			}
+			base = 10
 		}
 		add_stability = -0.1
 	}
@@ -5543,7 +5539,7 @@ country_event = {
 		# appeal
 		name = DOD_hungary.144.b
 		ai_chance = {
-			factor = 90
+			base = 90
 		}
 		HUN = {
 			country_event = DOD_hungary.145
@@ -5562,7 +5558,7 @@ country_event = {
 		# appeal to Germany
 		name = DOD_hungary.145.a
 		ai_chance = {
-			factor = 35
+			base = 35
 			modifier = {
 				is_in_faction_with = GER
 				factor = 10
@@ -5584,7 +5580,7 @@ country_event = {
 		# appeal to France
 		name = DOD_hungary.145.b
 		ai_chance = {
-			factor = 35
+			base = 35
 			modifier = {
 				is_in_faction_with = FRA
 				factor = 10
@@ -5610,7 +5606,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 35
+			base = 35
 			modifier = {
 				is_in_faction_with = SOV
 				factor = 10
@@ -5624,7 +5620,7 @@ country_event = {
 		# appeal to Italy
 		name = DOD_hungary.145.d
 		ai_chance = {
-			factor = 35
+			base = 35
 			modifier = {
 				is_in_faction_with = ITA
 				factor = 10

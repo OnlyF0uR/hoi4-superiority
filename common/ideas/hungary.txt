@@ -492,6 +492,131 @@ ideas = {
 				research_speed_factor = 0.1
 			}
 		}
+		HUN_nationalized_banks_idea = {
+			picture = tur_balkan_central_bank_wealthy_greece
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.1
+				#political_power_factor = -0.05
+			}
+		}
+		HUN_protect_common_man_idea = {
+			picture = tur_balkan_central_bank_wealthy_greece
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = 0.15
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.1
+			}
+		}
+		HUN_equality_of_opportunity_idea = {
+			picture = generic_women_in_the_army
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			modifier = {
+				hidden_modifier = {
+					female_random_army_leader_chance = 0.35
+				}
+				conscription_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.05
+				production_factory_max_efficiency_factor = 0.075
+			}
+		}
+		HUN_anticipate_an_invation_idea = {
+			picture = generic_army_war_college
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = -0.15
+				war_support_weekly = 0.005
+				training_time_army_factor = -0.25
+				production_factory_efficiency_gain_factor = 0.05
+				production_speed_arms_factory_factor = 0.2
+				line_change_production_efficiency_factor = 0.15
+			}
+		}
+		HUN_state_decentralization_idea = {
+			picture = BRA_dasp
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				stability_factor = 0.05
+				consumer_goods_factor = -0.1
+				political_power_factor = -0.05
+			}
+		}
+		HUN_governmental_disclosure_idea = {
+			picture = BRA_dasp
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				political_power_factor = -0.15
+				stability_factor = -0.15
+				consumer_goods_factor = 0.1
+				stability_weekly = 0.001
+				trade_laws_cost_factor = -0.25
+				economy_cost_factor = -0.25
+			}
+		}
+		HUN_bastian_of_totalitarian_resistance_idea = {
+			picture = generic_army_war_college
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				opinion_gain_monthly_same_ideology_factor = 0.4
+				fascism_acceptance = -80
+				communism_acceptance = -80
+				drift_defence_factor = 0.5
+			}
+		}
+		HUN_preserve_what_is_right_idea = {
+			picture = generic_army_war_college
+			allowed = {
+				original_tag = HUN
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				supply_consumption_factor = -0.15
+				recruitable_population_factor = 0.2
+				army_attack_factor = 0.1
+				army_defence_factor = 0.05
+				breakthrough_factor = 0.05
+			}
+		}
 	}
 	aircraft_manufacturer = {
 		designer = yes
