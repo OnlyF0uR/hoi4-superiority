@@ -1,10 +1,9 @@
-version="0.1.0"
+version="0.1.1"
 tags={
-	"Gameplay"
-	"Historical"
-	"National Focuses"
+	"Graphics"
 	"Fixes"
+	"Gameplay"
 	"Balance"
 }
 name="superiority"
-supported_version="1.14.7"
+supported_version="1.16.4"
