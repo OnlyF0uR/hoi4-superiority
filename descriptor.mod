@@ -1,9 +1,10 @@
-version="0.1.1"
+version="0.1.2"
 tags={
 	"Graphics"
 	"Fixes"
 	"Gameplay"
 	"Balance"
 }
-name="superiority"
-supported_version="1.16.4"
+name="Superiority: Ultima Ratio"
+supported_version="1.19.*"
+remote_file_id="3471446814"
