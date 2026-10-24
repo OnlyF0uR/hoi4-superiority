@@ -1921,5 +1921,3 @@ AST_monarchy = {
 	color = rgb { 218 165 32 }
 	color_ui = rgb { 218 165 32 }
 }
-	color_ui = rgb { 198 169 248 }
-}

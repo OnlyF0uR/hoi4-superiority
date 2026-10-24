@@ -8331,11 +8331,16 @@ country_event = {
 			GER = { transfer_state = 807 }
 			807 = { add_core_of = GER }
 			85 = { add_core_of = GER }
-			# superiority: Poland also cedes Poznan (see germany.81)
+			# superiority: Poland also cedes Poznan and Katowice (see germany.81)
 			if = {
 				limit = { POL = { owns_state = 86 } }
 				GER = { transfer_state = 86 }
 				86 = { add_core_of = GER }
+			}
+			if = {
+				limit = { POL = { owns_state = 762 } }
+				GER = { transfer_state = 762 }
+				762 = { add_core_of = GER }
 			}
 		}
 	}
@@ -8421,11 +8426,16 @@ country_event = {
 		transfer_state = 807
 		807 = { add_core_of = GER }
 		85 = { add_core_of = GER }
-		# superiority: Poland also cedes Poznan
+		# superiority: Poland also cedes Poznan and Katowice
 		if = {
 			limit = { POL = { owns_state = 86 } }
 			transfer_state = 86
 			86 = { add_core_of = GER }
+		}
+		if = {
+			limit = { POL = { owns_state = 762 } }
+			transfer_state = 762
+			762 = { add_core_of = GER }
 		}
 		if = {
 			limit = {
