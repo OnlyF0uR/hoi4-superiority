@@ -1,4 +1,4 @@
-version="0.1.1"
+version="0.1.2"
 tags={
 	"Graphics"
 	"Fixes"
@@ -6,4 +6,4 @@ tags={
 	"Balance"
 }
 name="superiority"
-supported_version="1.16.4"
+supported_version="1.19.*"
