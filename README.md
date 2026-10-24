@@ -1,6 +1,6 @@
 # hoi4-superiority
 
-A mod for Hearts of Iron IV that improves upon vanilla, including various improvements and fixes.
+**Superiority: Ultima Ratio** is a mod for Hearts of Iron IV that improves upon vanilla, including various improvements and fixes.
 
 Built against game version **1.19.3** (`supported_version` in `descriptor.mod`).
 
@@ -44,8 +44,8 @@ HOI4 can't patch part of a script file. A mod file with the same path as a vanil
 Workshop item: [3471446814](https://steamcommunity.com/sharedfiles/filedetails/?id=3471446814). `remote_file_id` in `descriptor.mod` ties uploads to that item. Without it, an upload creates a brand-new Workshop item.
 
 1. Register this folder as a local mod. Create `Documents/Paradox Interactive/Hearts of Iron IV/mod/superiority.mod` with the contents of `descriptor.mod`, plus `path="C:/Users/jerry/Documents/hoi4-superiority"`.
-2. To test, open the Paradox Launcher and make a playset with the local `superiority` instead of the subscribed Workshop one. Both show up with the same name.
-3. To upload, go to Launcher → **Mods** → **Mod Tools** → **Upload a mod**. Pick `superiority` and add a change note.
+2. To test, open the Paradox Launcher and make a playset with the local `Superiority: Ultima Ratio` instead of the subscribed Workshop one. Both show up with the same name.
+3. To upload, go to Launcher → **Mods** → **Mod Tools** → **Upload a mod**. Pick `Superiority: Ultima Ratio` and add a change note.
 
 The upload sends the whole folder, `.git` and `tools/` included.
 
