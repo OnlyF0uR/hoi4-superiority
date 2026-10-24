@@ -34,8 +34,8 @@ CZE = {	color = rgb { 145 132 48 }
 		color_ui = rgb { 145 132 48 }
 }
 POL = {
-	color = rgb { 143 20 128 }
-	color_ui = rgb { 143 20 128 }
+	color = rgb { 226 160 180 }
+	color_ui = rgb { 226 160 180 }
 }
 AUS = {
 	color = rgb { 184 176 171 }
@@ -1106,8 +1106,8 @@ KUB = {
 	color_ui = rgb { 61 61 92 }
 }
 DIP = {
-	color = rgb { 125 41 49 }
-	color_ui = rgb { 125 41 49 }
+	color = rgb { 85 107 47 }
+	color_ui = rgb { 110 139 61 }
 }
 PSH = {
 	color = rgb { 31 138 31 }
@@ -1229,8 +1229,8 @@ RNG = {
 }
 
 PSR = {
-	color = rgb { 31 31 122 }
-	color_ui = rgb { 16 16 61 }
+	color = rgb { 112 92 150 }
+	color_ui = rgb { 146 120 195 }
 }
 
 HBC = {

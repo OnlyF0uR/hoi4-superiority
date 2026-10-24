@@ -6,9 +6,9 @@ Built against game version **1.19.3** (`supported_version` in `descriptor.mod`).
 
 ## Features
 
-- Improved country colours
+- Hand-picked country colours
 - Germany: the "Danzig for Slovakia" deal also gives Germany Poznan and Katowice
-- Germany: the "Danzig or War" focus is renamed "Danzig oder Krieg"
+- Germany: historical German names for focuses famous for Germany, such as "Danzig oder Krieg", "Vierjahresplan" and "Wunderwaffen"
 
 ## What this mod changes
 
@@ -16,10 +16,10 @@ HOI4 can't patch part of a script file. A mod file with the same path as a vanil
 
 | File | Kind | Our change |
 |------|------|------------|
-| `common/countries/colors.txt` | Full copy | Our colour for 225 country tags. Every other tag keeps its vanilla colour. |
-| `common/countries/cosmetic.txt` | Full copy | Our colour for 251 cosmetic tags. Every other tag keeps its vanilla colour. |
+| `common/countries/colors.txt` | Full copy | Hand-picked: AFG, AUS, BUL, CHI, CZE, ENG, FRA, HUN, INS, IRE, ITA, PAK, PER, PHI, POL, ROM, TIB, YUG. DIP (Indian Partisans) and PSR (Second Philippine Republic) are recoloured so they don't clash with ENG and INS. Every other tag has its vanilla colour. |
+| `common/countries/cosmetic.txt` | Full copy | Hand-picked: HUN_EMPIRE, INS_HOL. Every other tag has its vanilla colour. |
 | `events/Germany.txt` | Full copy | Two blocks marked `# superiority:`. In `germany.81` ("Danzig Ceded for Slovakia"), Poland also cedes states 86 (Poznan) and 762 (Katowice) to Germany, and Germany gets cores on them. `germany.80` ("Danzig for Slovakia", Poland's choice) shows the same thing in its tooltip. Each state only moves if Poland still owns it. |
-| `localisation/english/replace/superiority_l_english.yml` | Override (own keys only) | `GER_danzig_or_war` is "Danzig oder Krieg". Files under `replace/` override single keys, so this file needs no update after a patch. |
+| `localisation/english/replace/superiority_l_english.yml` | Override (own keys only) | German names for German focuses (Danzig oder Krieg, Vierjahresplan, Wunderwaffen, Autarkiepolitik, U-Boot-Waffe, Unternehmen Tannenbaum, Rückkehr des Kaisers). Files under `replace/` override single keys, so a patch can't break this file. Only rename focuses that are historically unique to Germany, not generic programmes. After a patch, check the keys are still focus IDs in `common/national_focus/germany.txt`: Paradox renames them when it reworks the tree, and an old key silently stops showing. |
 | `gfx/leaders/GER/portrait_GER_adolf_hitler.dds` | Replacement image | Custom Hitler portrait. It only works while the filename matches the vanilla one, so check `interface/_leader_portraits.gfx` if it stops showing. |
 
 ## Updating to a new game version
